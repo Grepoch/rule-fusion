@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "analytics.example.io",
+        "example-malware.com",
+        "extra-tracker.example.org",
+        "telemetry.example.dev",
+        "tracker.example.net"
+      ]
+    }
+  ]
+}
