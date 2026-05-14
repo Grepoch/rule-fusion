@@ -7,17 +7,25 @@
 #   name      可读名称，用于日志输出
 #   url       上游 raw 链接
 #   format    上游原始格式: domain | classical | hosts | adblock
-#   category  归类到哪个产物: reject | direct | proxy
+#   category  归类到哪个产物文件名: reject | ai | google | telegram | ...
 #   enabled   是否启用 (未审核 license 与质量前请保持 false)
 #
 # 安全约定:
 #   - 任何新增源默认 enabled: false，先在本地跑过、对过 diff 再开启
 #   - URL 必须是 raw 链接，不要写仓库主页
 #   - 优先选用稳定 main / master 分支，避免引用 commit hash 失效
+#
+# 产物映射:
+#   category: reject  → dist/mihomo/domain/Reject.mrs
+#   category: ai      → dist/mihomo/domain/AI.mrs
+#   category: google  → dist/mihomo/domain/Google.mrs
+#   ...以此类推
 # ============================================================
 
 sources:
-  # ---- 默认启用：内置 mock，方便首次运行就能看到产物 ----
+  # ════════════════════════════════════════════════════════════
+  # 广告拦截 (Reject)
+  # ════════════════════════════════════════════════════════════
   - name: mock-upstream-a
     url: mock://virtual-upstream-a
     format: domain
@@ -30,7 +38,6 @@ sources:
     category: reject
     enabled: true
 
-  # ---- 候选上游：审核 license 与规则质量后再开启 ----
   - name: blackmatrix7-Advertising
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.txt
     format: domain
@@ -43,8 +50,128 @@ sources:
     category: reject
     enabled: false
 
-  - name: 666OS-Reject
-    url: https://raw.githubusercontent.com/666OS/YYDS/main/rule/Reject.list
+  # ════════════════════════════════════════════════════════════
+  # AI 服务
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-OpenAI
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
     format: classical
-    category: reject
+    category: ai
+    enabled: false
+
+  - name: blackmatrix7-Claude
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+    format: classical
+    category: ai
+    enabled: false
+
+  - name: blackmatrix7-Copilot
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list
+    format: classical
+    category: ai
+    enabled: false
+
+  # ════════════════════════════════════════════════════════════
+  # Google
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Google
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_Domain.txt
+    format: domain
+    category: google
+    enabled: false
+
+  # ════════════════════════════════════════════════════════════
+  # Telegram
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Telegram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_Domain.txt
+    format: domain
+    category: telegram
+    enabled: false
+
+  # ════════════════════════════════════════════════════════════
+  # 社交媒体 (SocialMedia)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Twitter
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter_Domain.txt
+    format: domain
+    category: twitter
+    enabled: false
+
+  - name: blackmatrix7-Facebook
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook_Domain.txt
+    format: domain
+    category: facebook
+    enabled: false
+
+  - name: blackmatrix7-Discord
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord_Domain.txt
+    format: domain
+    category: discord
+    enabled: false
+
+  - name: blackmatrix7-Reddit
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit_Domain.txt
+    format: domain
+    category: reddit
+    enabled: false
+
+  # ════════════════════════════════════════════════════════════
+  # 流媒体 (Streaming)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-YouTube
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_Domain.txt
+    format: domain
+    category: youtube
+    enabled: false
+
+  - name: blackmatrix7-Netflix
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Domain.txt
+    format: domain
+    category: netflix
+    enabled: false
+
+  - name: blackmatrix7-Spotify
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify_Domain.txt
+    format: domain
+    category: spotify
+    enabled: false
+
+  - name: blackmatrix7-TikTok
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_Domain.txt
+    format: domain
+    category: tiktok
+    enabled: false
+
+  # ════════════════════════════════════════════════════════════
+  # 服务
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Microsoft
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_Domain.txt
+    format: domain
+    category: microsoft
+    enabled: false
+
+  - name: blackmatrix7-Apple
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Domain.txt
+    format: domain
+    category: apple
+    enabled: false
+
+  - name: blackmatrix7-GitHub
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_Domain.txt
+    format: domain
+    category: github
+    enabled: false
+
+  - name: blackmatrix7-Steam
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_Domain.txt
+    format: domain
+    category: steam
+    enabled: false
+
+  - name: blackmatrix7-Speedtest
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest_Domain.txt
+    format: domain
+    category: speedtest
     enabled: false

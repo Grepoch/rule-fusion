@@ -2,11 +2,12 @@
 # ============================================================
 # compile_binary.sh
 # ------------------------------------------------------------
-# Compile every source ruleset emitted by fetch_and_merge.py
-# into kernel-native binaries:
+# Recursively compile source rulesets into kernel-native binaries:
 #
-#   dist/mihomo/<cat>.txt    →  dist/mihomo/<cat>.mrs   (mihomo)
-#   dist/sing-box/<cat>.json →  dist/sing-box/<cat>.srs (sing-box)
+#   dist/mihomo/domain/<Cat>.txt   →  dist/mihomo/domain/<Cat>.mrs
+#   dist/mihomo/ip/<Cat>.txt       →  dist/mihomo/ip/<Cat>.mrs
+#   dist/sing-box/domain/<Cat>.json → dist/sing-box/domain/<Cat>.srs
+#   dist/sing-box/ip/<Cat>.json    →  dist/sing-box/ip/<Cat>.srs
 #
 # Required env vars (provided by 2-build-release.yml):
 #   MIHOMO_BIN    absolute path to the mihomo executable
@@ -33,24 +34,28 @@ fail() { printf '\033[31m[compile]\033[0m %s\n' "$*" >&2; exit 1; }
 log "mihomo:   $("${MIHOMO_BIN}" -v   2>&1 | head -n 1)"
 log "sing-box: $("${SING_BOX_BIN}" version 2>&1 | head -n 1)"
 
-shopt -s nullglob
+count=0
 
-# ---- mihomo: <cat>.txt → <cat>.mrs ----
-if [[ -d "${DIST}/mihomo" ]]; then
-  for src in "${DIST}/mihomo/"*.txt; do
-    out="${src%.txt}.mrs"
-    log "mihomo convert-ruleset domain text → ${out#"${ROOT}/"}"
-    "${MIHOMO_BIN}" convert-ruleset domain text "${src}" "${out}"
-  done
-fi
+# ---- mihomo: recursively find all .txt → compile to .mrs ----
+while IFS= read -r -d '' src; do
+  out="${src%.txt}.mrs"
+  # Determine behavior from path: ip/ → ipcidr, domain/ → domain
+  if [[ "${src}" == *"/ip/"* ]]; then
+    behavior="ipcidr"
+  else
+    behavior="domain"
+  fi
+  log "mihomo convert-ruleset ${behavior} text → ${out#"${ROOT}/"}"
+  "${MIHOMO_BIN}" convert-ruleset "${behavior}" text "${src}" "${out}"
+  ((count++))
+done < <(find "${DIST}/mihomo" -name '*.txt' -print0 2>/dev/null || true)
 
-# ---- sing-box: <cat>.json → <cat>.srs ----
-if [[ -d "${DIST}/sing-box" ]]; then
-  for src in "${DIST}/sing-box/"*.json; do
-    out="${src%.json}.srs"
-    log "sing-box rule-set compile → ${out#"${ROOT}/"}"
-    "${SING_BOX_BIN}" rule-set compile --output "${out}" "${src}"
-  done
-fi
+# ---- sing-box: recursively find all .json → compile to .srs ----
+while IFS= read -r -d '' src; do
+  out="${src%.json}.srs"
+  log "sing-box rule-set compile → ${out#"${ROOT}/"}"
+  "${SING_BOX_BIN}" rule-set compile --output "${out}" "${src}"
+  ((count++))
+done < <(find "${DIST}/sing-box" -name '*.json' -print0 2>/dev/null || true)
 
-log "done."
+log "done. compiled ${count} files."

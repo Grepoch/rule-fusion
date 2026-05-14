@@ -1,0 +1,61 @@
+name: 3 · Geo Data
+
+on:
+  schedule:
+    # Weekly on Monday 03:00 Asia/Shanghai (= 19:00 UTC Sunday)
+    - cron: "0 19 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  geo:
+    name: Fetch GeoIP/GeoSite → publish to Grepoch/rules@geo
+    runs-on: ubuntu-latest
+    if: github.repository == 'Grepoch/rule-fusion'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare output directory
+        run: mkdir -p geo/ip geo/site
+
+      - name: Download GeoIP (Loyalsoldier)
+        run: |
+          set -euo pipefail
+          # geoip.dat (v2ray format)
+          curl -fsSL -o geo/ip/geoip.dat \
+            "https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat"
+          # geoip.db (sing-box format)
+          curl -fsSL -o geo/ip/geoip.db \
+            "https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.db"
+          # Country.mmdb (MaxMind format, used by mihomo)
+          curl -fsSL -o geo/ip/Country.mmdb \
+            "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb"
+          ls -lh geo/ip/
+
+      - name: Download GeoSite (Loyalsoldier/domain-list-custom)
+        run: |
+          set -euo pipefail
+          # geosite.dat (v2ray format)
+          curl -fsSL -o geo/site/geosite.dat \
+            "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.dat"
+          # geosite.db (sing-box format)
+          curl -fsSL -o geo/site/geosite.db \
+            "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.db"
+          ls -lh geo/site/
+
+      - name: List geo artifacts
+        run: ls -lhR geo/
+
+      - name: Publish geo/ → Grepoch/rules@geo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY_RULES }}
+          external_repository: Grepoch/rules
+          publish_dir: ./geo
+          publish_branch: geo
+          force_orphan: true
+          commit_message: "geo: update $(date -u +%Y-%m-%d)"
