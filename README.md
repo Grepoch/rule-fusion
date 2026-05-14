@@ -184,9 +184,9 @@ final_set = merged_set - {d for d in merged_set if covered_by_whitelist(d)}
 
 ---
 
-## 上游致谢 (Credits)
+## 来源致谢 (Credits)
 
-本项目不创造规则，只做整理与聚合。所有原始数据归各上游作者所有。
+感谢以下开源项目和维护者长期整理、生成和维护网络路由规则、地理数据、客户端内核及相关生态工具。本项目的工作建立在这些社区成果之上，主要负责规则清洗、去重、白名单保护、格式转换与自动化分发。
 
 - [SagerNet/sing-box](https://github.com/SagerNet/sing-box) — Sing-box 内核与 `.srs` 规则集
 - [MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo) — Mihomo 内核与 `.mrs` 规则集
@@ -197,7 +197,7 @@ final_set = merged_set - {d for d in merged_set if covered_by_whitelist(d)}
 - [HosheaPDNX/rule-set](https://github.com/HosheaPDNX/rule-set) — 规则集整理与分发
 - [666OS/YYDS](https://github.com/666OS/YYDS) — 规则集与代理生态
 
-若你是任意上游著作权人，希望本项目下架对应聚合，请通过 Issue 联系，会第一时间处理。
+若你是任意上述著作权人/开发者，不希望本项目聚合、引用或展示，请通过 Issue 联系，本项目会优先尊重原作者和原项目的要求。
 
 If you are a copyright holder of any upstream ruleset and would like the aggregation removed, please open an issue.
 
