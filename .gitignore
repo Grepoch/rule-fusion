@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CI: kernel binaries downloaded by 2-build-release.yml
+bin/
+*.gz
+*.tgz
+*.tar.gz
+
+# Editor
+.idea/
+.vscode/

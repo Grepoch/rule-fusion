@@ -1,0 +1,50 @@
+# ============================================================
+# upstreams.yaml — 已审核的上游规则源清单
+# ------------------------------------------------------------
+# fetch_and_merge.py 会按此清单拉取每个 enabled 的源。
+#
+# 字段说明:
+#   name      可读名称，用于日志输出
+#   url       上游 raw 链接
+#   format    上游原始格式: domain | classical | hosts | adblock
+#   category  归类到哪个产物: reject | direct | proxy
+#   enabled   是否启用 (未审核 license 与质量前请保持 false)
+#
+# 安全约定:
+#   - 任何新增源默认 enabled: false，先在本地跑过、对过 diff 再开启
+#   - URL 必须是 raw 链接，不要写仓库主页
+#   - 优先选用稳定 main / master 分支，避免引用 commit hash 失效
+# ============================================================
+
+sources:
+  # ---- 默认启用：内置 mock，方便首次运行就能看到产物 ----
+  - name: mock-upstream-a
+    url: mock://virtual-upstream-a
+    format: domain
+    category: reject
+    enabled: true
+
+  - name: mock-upstream-b
+    url: mock://virtual-upstream-b
+    format: domain
+    category: reject
+    enabled: true
+
+  # ---- 候选上游：审核 license 与规则质量后再开启 ----
+  - name: blackmatrix7-Advertising
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.txt
+    format: domain
+    category: reject
+    enabled: false
+
+  - name: LM-Firefly-Adblock
+    url: https://raw.githubusercontent.com/LM-Firefly/Rules/master/Adblock-lite.list
+    format: classical
+    category: reject
+    enabled: false
+
+  - name: 666OS-Reject
+    url: https://raw.githubusercontent.com/666OS/YYDS/main/rule/Reject.list
+    format: classical
+    category: reject
+    enabled: false

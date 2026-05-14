@@ -1,0 +1,85 @@
+name: 2 · Build & Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/2-build-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Compile binaries → publish to release branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python deps
+        run: python -m pip install -r requirements.txt
+
+      - name: Regenerate dist (idempotent)
+        run: python scripts/fetch_and_merge.py
+
+      - name: Download mihomo (latest linux-amd64-compatible)
+        run: |
+          set -euo pipefail
+          mkdir -p bin
+          asset_url="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
+            | jq -r '.assets[] | select(.name | test("^mihomo-linux-amd64-compatible-v.*\\.gz$")) | .browser_download_url' \
+            | head -n 1)"
+          [[ -n "$asset_url" ]] || { echo "mihomo asset not found"; exit 1; }
+          echo "→ $asset_url"
+          curl -fsSL "$asset_url" -o bin/mihomo.gz
+          gzip -df bin/mihomo.gz
+          chmod +x bin/mihomo
+          bin/mihomo -v | head -n 1
+
+      - name: Download sing-box (latest linux-amd64)
+        run: |
+          set -euo pipefail
+          mkdir -p bin
+          asset_url="$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest \
+            | jq -r '.assets[] | select(.name | test("^sing-box-.*-linux-amd64\\.tar\\.gz$")) | .browser_download_url' \
+            | head -n 1)"
+          [[ -n "$asset_url" ]] || { echo "sing-box asset not found"; exit 1; }
+          echo "→ $asset_url"
+          curl -fsSL "$asset_url" -o bin/sing-box.tar.gz
+          tar -xzf bin/sing-box.tar.gz -C bin
+          # the archive nests the binary under sing-box-<ver>-linux-amd64/
+          find bin -type f -name sing-box -exec mv {} bin/sing-box \;
+          chmod +x bin/sing-box
+          bin/sing-box version | head -n 1
+
+      - name: Compile .mrs / .srs
+        env:
+          MIHOMO_BIN:   ${{ github.workspace }}/bin/mihomo
+          SING_BOX_BIN: ${{ github.workspace }}/bin/sing-box
+        run: bash scripts/compile_binary.sh
+
+      - name: List final dist
+        run: ls -lhR dist
+
+      - name: Publish dist/ → release branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: release
+          destination_dir: dist
+          force_orphan: true
+          commit_message: "release: ${{ github.sha }}"
