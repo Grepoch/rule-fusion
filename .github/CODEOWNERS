@@ -1,0 +1,10 @@
+# ============================================================
+# CODEOWNERS — 所有变更必须由维护者 Review
+# ------------------------------------------------------------
+# 配合 Branch Protection Rule 使用:
+#   Settings → Branches → main → Require a pull request before merging
+#   + Require review from Code Owners
+# ============================================================
+
+# 全局: 所有文件变更都需要 @Grepoch 审批
+*   @Grepoch

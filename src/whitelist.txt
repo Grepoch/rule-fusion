@@ -5,15 +5,180 @@
 # 从 reject 集合中剔除，避免上游投毒或误杀导致国民级断网。
 #
 # 一行一个根域名，支持注释 (# 开头)。
-# 子域无需单独写，apple.com 会自动覆盖 sub.apple.com / a.b.apple.com。
-#
-# 上线前建议补全:
-#   - 微信 / 支付宝 / 银联 / 12306
-#   - 三大运营商 / 政府 / 银行
-#   - Apple / Google / Microsoft 国内服务子集
+# 子域无需单独写：apple.com 自动覆盖 a.b.apple.com。
 # ============================================================
 
-apple.com
-icloud.com
+# ─── 测试占位 ─────────────────────────────────────────────────
 example.com
 trusted.example.org
+
+# ─── 中国国民级 IM / 支付 / 出行 ─────────────────────────────
+qq.com
+weixin.qq.com
+wechat.com
+alipay.com
+alipayobjects.com
+mypaas.com.cn
+unionpay.com
+unionpayintl.com
+95516.com
+12306.cn
+12306.com
+
+# ─── 中国国民级电商 / 生活 ────────────────────────────────────
+taobao.com
+taobaocdn.com
+tmall.com
+alibaba.com
+alibabausercontent.com
+aliyun.com
+aliyuncs.com
+alicdn.com
+alikunlun.com
+jd.com
+jdcdn.com
+360buyimg.com
+meituan.com
+meituan.net
+dianping.com
+sankuai.com
+pinduoduo.com
+yangkeduo.com
+pddpic.com
+
+# ─── 中国搜索 / 内容 ─────────────────────────────────────────
+baidu.com
+bdstatic.com
+bdimg.com
+baidustatic.com
+baidubcr.com
+sogou.com
+sogoucdn.com
+sm.cn
+so.com
+360.cn
+360.com
+qhimg.com
+qhres.com
+qhmsg.com
+qhupdate.com
+bytedance.com
+toutiao.com
+douyin.com
+douyincdn.com
+ixigua.com
+snssdk.com
+bdstatic.cn
+bilibili.com
+hdslb.com
+biliapi.net
+biliapi.com
+bilivideo.com
+bilivideo.cn
+
+# ─── 中国互联网巨头基础设施 ───────────────────────────────────
+tencent.com
+qq.com.cn
+gtimg.com
+gtimg.cn
+qpic.cn
+tencentcs.com
+tencent-cloud.com
+tencent-cloud.net
+qcloud.com
+qcloudimg.com
+qcloudcdn.com
+myqcloud.com
+weibo.com
+weibo.cn
+sinaimg.cn
+sina.com.cn
+sina.cn
+sinajs.cn
+sinacloud.com
+sinacloud.net
+weibocdn.com
+netease.com
+163.com
+126.com
+yeah.net
+nie.netease.com
+163yun.com
+nosdn.127.net
+
+# ─── 中国运营商 ─────────────────────────────────────────────
+chinamobile.com
+10086.cn
+10010.com
+chinaunicom.com
+189.cn
+chinatelecom.com.cn
+chinatelecom.cn
+
+# ─── 中国银行（主要）──────────────────────────────────────────
+icbc.com.cn
+ccb.com
+abchina.com
+bankcomm.com
+boc.cn
+psbc.com
+spdb.com.cn
+cmbchina.com
+citicbank.com
+cebbank.com
+cib.com.cn
+hxb.com.cn
+pingan.com.cn
+pingan.com
+
+# ─── 中国政务 / 公共 ─────────────────────────────────────────
+gov.cn
+edu.cn
+12345.gov.cn
+chinapost.com.cn
+ems.com.cn
+sf-express.com
+sf-tech.com.cn
+yto.net.cn
+zto.com
+sto.cn
+yunda.com
+yundaex.com
+ydtech.com.cn
+sto.cn
+
+# ─── Apple / iCloud ──────────────────────────────────────────
+apple.com
+icloud.com
+icloud.com.cn
+apple.com.cn
+mzstatic.com
+cdn-apple.com
+apple-cloudkit.com
+itunes.apple.com
+
+# ─── Microsoft 国内可达 ──────────────────────────────────────
+microsoft.com
+windows.com
+windowsupdate.com
+office.com
+office.net
+office365.com
+live.com
+microsoftonline.com
+azureedge.net
+
+# ─── Google 国内可达子集（地图、Play 等部分回中可访问，保留以防误杀）
+googleapis.com
+gstatic.com
+googleusercontent.com
+
+# ─── DNS / 公共基础服务 ──────────────────────────────────────
+cloudflare.com
+cloudflare-dns.com
+1.1.1.1
+8.8.8.8
+dns.alidns.com
+alidns.com
+dnspod.cn
+doh.pub

@@ -17,6 +17,8 @@ jobs:
   build:
     name: Compile binaries → publish to release branch
     runs-on: ubuntu-latest
+    # Only run in the original repo, not in forks
+    if: github.repository == 'Grepoch/rule-fusion'
 
     steps:
       - name: Checkout

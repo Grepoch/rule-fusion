@@ -59,9 +59,13 @@ HTTP_TIMEOUT = 30
 HTTP_RETRY = 3
 USER_AGENT = "rule-fusion/1.0 (+https://github.com/Grepoch/rule-fusion)"
 
+# Accepts FQDNs but rejects IPv4 / IPv6 / pure-numeric strings.
+# Requires at least one alphabetic character somewhere, which excludes IPs.
 DOMAIN_RE = re.compile(
-    r"^(?=.{1,253}$)(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z0-9-]{1,63})+$"
+    r"^(?=.{1,253}$)(?=.*[A-Za-z])(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z0-9-]{1,63})+$"
 )
+# Quick IPv4 / IPv6 detector used as an explicit short-circuit in _normalize.
+_IP_RE = re.compile(r"^[0-9.:a-fA-F]+$")
 
 # Built-in mock upstreams. Used by --offline and as fallbacks for `mock://` URLs.
 MOCK_UPSTREAMS: dict[str, str] = {
@@ -184,6 +188,8 @@ def _normalize(domain: str) -> str:
     domain = domain.lstrip("|").lstrip("+").lstrip(".").rstrip(".")
     domain = domain.split("^", 1)[0]
     domain = domain.split("/", 1)[0]
+    if not domain or _IP_RE.match(domain):
+        return ""
     return domain if DOMAIN_RE.match(domain) else ""
 
 
