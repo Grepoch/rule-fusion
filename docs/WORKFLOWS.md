@@ -9,7 +9,8 @@
    └────────────────────┘         └────────────────────┘         └────────────────────┘
                                                                           │
                                                                           ▼
-                                                                  release 分支 (CDN)
+                                                              Grepoch/rules@release
+                                                                (独立产物仓库, CDN)
 ```
 
 ---
@@ -69,26 +70,33 @@
 4. 调用 `scripts/compile_binary.sh`，遍历 dist 中的源文件批量编译
    - `dist/mihomo/*.txt` → `dist/mihomo/*.mrs`
    - `dist/sing-box/*.json` → `dist/sing-box/*.srs`
-5. `peaceiris/actions-gh-pages@v4` 把整个 `dist/` 推送到 `release` 分支（`force_orphan`）
+5. `peaceiris/actions-gh-pages@v4` 通过 deploy key 把整个 `dist/` 推送到 `Grepoch/rules` 仓库的 `release` 分支（`force_orphan`）
 
 ### 为什么动态拉取而不是写死版本
 
 写死版本的代价是每次内核升级都要改 workflow；用 GitHub Releases API + `jq` 过滤，CI 永远跟最新稳定版走，零维护。
 
+### 为什么推送到独立仓库
+
+- 脚本 bug 不会直接污染用户正在订阅的产物
+- `rules` 仓库只允许 CI bot 推送（deploy key），人类无法直接修改
+- 订阅链接更短、语义更清晰
+- Token 权限隔离：源码仓库被入侵也无法绕过 CI 篡改规则
+
 ### 分发链接结构
 
-`release` 分支保留了 `dist/` 的目录层级，因此最终订阅地址：
+产物推送到 `Grepoch/rules` 的 `release` 分支，最终订阅地址：
 
 ```text
 # Raw GitHub
-https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/mihomo/reject.mrs
-https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/sing-box/reject.srs
-https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/shadowrocket/reject.list
+https://raw.githubusercontent.com/Grepoch/rules/release/mihomo/reject.mrs
+https://raw.githubusercontent.com/Grepoch/rules/release/sing-box/reject.srs
+https://raw.githubusercontent.com/Grepoch/rules/release/shadowrocket/reject.list
 
 # jsDelivr CDN
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/mihomo/reject.mrs
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/sing-box/reject.srs
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/shadowrocket/reject.list
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/mihomo/reject.mrs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/sing-box/reject.srs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/shadowrocket/reject.list
 ```
 
 ---
@@ -114,8 +122,8 @@ https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/shadowrocket/reject
 
 ### `release` 分支没出现
 
-- 第一次推送时 `peaceiris/actions-gh-pages@v4` 会创建分支；确保 `force_orphan: true`
-- 再次确认 `permissions: contents: write`
+- 第一次推送时 `peaceiris/actions-gh-pages@v4` 会在 `Grepoch/rules` 仓库创建 `release` 分支；确保 deploy key 有 write 权限
+- 确认 `DEPLOY_KEY_RULES` secret 已正确配置（完整私钥，含 BEGIN/END 行）
 
 ### mihomo / sing-box 下载失败
 

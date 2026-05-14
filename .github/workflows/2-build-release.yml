@@ -11,11 +11,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
-    name: Compile binaries → publish to release branch
+    name: Compile binaries → publish to Grepoch/rules
     runs-on: ubuntu-latest
     # Only run in the original repo, not in forks
     if: github.repository == 'Grepoch/rule-fusion'
@@ -76,12 +76,12 @@ jobs:
       - name: List final dist
         run: ls -lhR dist
 
-      - name: Publish dist/ → release branch
+      - name: Publish dist/ → Grepoch/rules@release
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.DEPLOY_KEY_RULES }}
+          external_repository: Grepoch/rules
           publish_dir: ./dist
           publish_branch: release
-          destination_dir: dist
           force_orphan: true
           commit_message: "release: ${{ github.sha }}"

@@ -15,6 +15,11 @@ bin/
 *.tgz
 *.tar.gz
 
+# Build artifacts: binaries go to Grepoch/rules, not here
+# But source-format dist/ files ARE tracked for PR review visibility
+dist/**/*.mrs
+dist/**/*.srs
+
 # Editor
 .idea/
 .vscode/

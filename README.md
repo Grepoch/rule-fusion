@@ -9,6 +9,23 @@
 
 ---
 
+## 项目架构
+
+本项目采用**双仓库分离架构**：
+
+| 仓库 | 定位 | 内容 |
+|------|------|------|
+| [`Grepoch/rule-fusion`](https://github.com/Grepoch/rule-fusion) | 源码仓库 | 脚本、配置、Actions、文档 |
+| [`Grepoch/rules`](https://github.com/Grepoch/rules) | 产物仓库 | 编译后的规则文件（用户订阅此仓库） |
+
+**为什么拆分？**
+- 脚本出 bug 不会直接污染用户正在订阅的产物
+- `rules` 仓库只允许 CI bot 推送，人类无法直接修改产物
+- 订阅链接短且稳定，一旦确定永不变更
+- Token 权限隔离：即使源码仓库被入侵，攻击者也无法绕过 CI 直接篡改规则
+
+---
+
 ## 项目定位
 
 `rule-fusion` 是一个现代化、半自动化的网络代理规则聚合器。它从多个上游开源项目读取规则，进行清洗、去重、白名单兜底，再输出为多个代理生态可直接消费的格式。
@@ -26,19 +43,19 @@
 - **多源聚合**：统一处理 domain / classical / hosts / adblock 等异构上游格式
 - **半自动审计**：上游变化以 PR 形式提交，必须人工 Review 才能合入
 - **白名单兜底**：任何上游都无法误伤白名单内的国民级域名（含子域）
-- **多格式产物**：同一份清洗后的域名集合一次性输出 4 个内核所需的所有格式
-- **干净分发**：编译产物推送到独立 `release` 分支，main 分支保持纯净源数据
+- **多格式产物**：同一份清洗后的域名集合一次性输出所有内核所需的格式
+- **产物隔离**：编译产物推送到独立的 [`Grepoch/rules`](https://github.com/Grepoch/rules) 仓库
 
 ---
 
 ## 目录结构
 
 ```text
-rule-fusion/
+rule-fusion/                         ← 本仓库（源码）
 ├── .github/
 │   └── workflows/
 │       ├── 1-sync-upstream.yml      # 定时拉取 → 创建 PR（需人工合并）
-│       └── 2-build-release.yml      # 合并后编译 .mrs/.srs → 推 release 分支
+│       └── 2-build-release.yml      # 合并后编译 → 推送到 Grepoch/rules
 │
 ├── src/                             # 维护者手动控制的核心数据
 │   ├── upstreams.yaml               # 上游源清单（含格式 / 分类 / 开关）
@@ -55,15 +72,22 @@ rule-fusion/
 │   ├── RULE_FORMATS.md              # 各内核格式与客户端配置示例
 │   └── WORKFLOWS.md                 # 半自动同步与发布流程详解
 │
-├── dist/                            # 自动生成产物（不应在 main 手动修改）
-│   ├── mihomo/         # *.txt *.yaml *.mrs
-│   ├── sing-box/       # *.json *.srs
-│   └── shadowrocket/   # *.list
-│
 ├── requirements.txt
 ├── .gitignore
 ├── LICENSE
 └── README.md
+
+rules/                               ← 产物仓库 (Grepoch/rules)
+└── release 分支
+    ├── mihomo/
+    │   ├── reject.txt               # domain-text 源
+    │   ├── reject.yaml              # rule-provider yaml 源
+    │   └── reject.mrs               # 二进制（推荐）
+    ├── sing-box/
+    │   ├── reject.json              # rule-set 源
+    │   └── reject.srs               # 二进制（推荐）
+    └── shadowrocket/
+        └── reject.list              # 文本规则
 ```
 
 ---
@@ -90,7 +114,7 @@ ls -lhR dist/
 
 ## 订阅地址
 
-> 推荐从 `release` 分支订阅，main 分支只放源数据，不含编译产物。
+> 所有订阅链接指向 [`Grepoch/rules`](https://github.com/Grepoch/rules) 仓库的 `release` 分支。
 
 ### Mihomo (Clash Meta)
 
@@ -100,7 +124,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/mihomo/reject.mrs
+    url: https://raw.githubusercontent.com/Grepoch/rules/release/mihomo/reject.mrs
     path: ./ruleset/rule-fusion-reject.mrs
     interval: 86400
 
@@ -115,7 +139,7 @@ rules:
   "type": "remote",
   "tag": "rule-fusion-reject",
   "format": "binary",
-  "url": "https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/sing-box/reject.srs",
+  "url": "https://raw.githubusercontent.com/Grepoch/rules/release/sing-box/reject.srs",
   "update_interval": "1d"
 }
 ```
@@ -123,15 +147,15 @@ rules:
 ### Shadowrocket
 
 ```text
-RULE-SET,https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/shadowrocket/reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Grepoch/rules/release/shadowrocket/reject.list,REJECT
 ```
 
 ### CDN 加速（jsDelivr）
 
 ```text
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/mihomo/reject.mrs
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/sing-box/reject.srs
-https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/shadowrocket/reject.list
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/mihomo/reject.mrs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/sing-box/reject.srs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/shadowrocket/reject.list
 ```
 
 更多客户端配置示例见 [docs/RULE_FORMATS.md](docs/RULE_FORMATS.md)。
@@ -160,11 +184,14 @@ https://cdn.jsdelivr.net/gh/Grepoch/rule-fusion@release/dist/shadowrocket/reject
                     │ 2-build-release.yml          │
                     │  下载 mihomo / sing-box 最新 │
                     │  编译 .mrs / .srs            │
-                    │  推送 dist/ → release 分支   │
+                    │  推送到 Grepoch/rules@release│
                     └──────────────┬───────────────┘
                                    │
                                    ▼
-                          用户订阅 / CDN 分发
+                    ┌──────────────────────────────┐
+                    │ Grepoch/rules (产物仓库)     │
+                    │  用户订阅 / CDN 分发         │
+                    └──────────────────────────────┘
 ```
 
 完整流程见 [docs/WORKFLOWS.md](docs/WORKFLOWS.md)。

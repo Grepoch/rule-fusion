@@ -56,7 +56,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/mihomo/reject.mrs
+    url: https://raw.githubusercontent.com/Grepoch/rules/release/mihomo/reject.mrs
     path: ./ruleset/rule-fusion-reject.mrs
     interval: 86400
 
@@ -106,7 +106,7 @@ sing-box rule-set compile --output dist/sing-box/reject.srs dist/sing-box/reject
         "type": "remote",
         "tag": "rule-fusion-reject",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/Grepoch/rule-fusion/release/dist/sing-box/reject.srs",
+        "url": "https://raw.githubusercontent.com/Grepoch/rules/release/sing-box/reject.srs",
         "update_interval": "1d"
       }
     ],
