@@ -1,0 +1,29 @@
+# ============================================================
+# googledrive-services.txt — Google Drive 精细域名
+# ------------------------------------------------------------
+# 文件名前缀 "googledrive-" → 进入 category=googledrive 产物
+#
+# 只放 Google Drive 明确专属域名，不放 googleapis.com 等通用域名。
+# 这样不会把 Google 登录、Play、浏览器安全浏览等流量带过来。
+#
+# 使用建议（放在 Google 规则之前）：
+#   - RULE-SET,GoogleDrive,💾 网盘下载
+#   - RULE-SET,CloudDrive,💾 网盘下载
+#   - RULE-SET,Google,🔍 Google
+# ============================================================
+
+# ─── Google Drive 核心 ────────────────────────────────────────
+drive.google.com
+drive.usercontent.google.com
+googledrive.com
+
+# ─── Google Docs / Sheets / Slides ───────────────────────────
+docs.google.com
+sheets.google.com
+slides.google.com
+docs.googleusercontent.com
+doc-0c-0c-docs.googleusercontent.com
+
+# ─── 可选：Google Photos / Video（观察后决定是否保留）─────────
+photos.google.com
+video.google.com

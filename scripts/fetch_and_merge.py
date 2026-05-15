@@ -314,9 +314,9 @@ def merge_local(by_category: dict[str, set[str]]) -> None:
                 "microsoft", "apple", "applecn", "github", "steam", "steamcn",
                 "speedtest", "socialmedia", "streaming", "direct", "proxy",
                 "china", "download", "games", "crypto", "tracking", "private",
-                "cloudflare", "bilibili", "onedrive", "dns", "googlefcm",
-                "12306", "disney", "hbo", "emby", "paypal", "pixiv",
-                "bahamut", "newsmedia", "xptv", "messages", "instagram",
+                "cloudflare", "clouddrive", "googledrive", "bilibili", "onedrive",
+                "dns", "googlefcm", "12306", "disney", "hbo", "emby", "paypal",
+                "pixiv", "bahamut", "newsmedia", "xptv", "messages", "instagram",
             }:
                 target_cat = parts[0]
             else:
@@ -467,6 +467,8 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
         "tracking": "Tracking",
         "private": "Private",
         "cloudflare": "Cloudflare",
+        "clouddrive": "CloudDrive",
+        "googledrive": "GoogleDrive",
         "bilibili": "Bilibili",
         "onedrive": "OneDrive",
         "dns": "DNS",
