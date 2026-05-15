@@ -311,9 +311,12 @@ def merge_local(by_category: dict[str, set[str]]) -> None:
             if len(parts) >= 2 and parts[0] in {
                 "reject", "ai", "google", "telegram", "twitter", "facebook",
                 "discord", "reddit", "youtube", "netflix", "spotify", "tiktok",
-                "microsoft", "apple", "github", "steam", "speedtest",
-                "socialmedia", "streaming", "direct", "proxy", "china",
-                "download", "games", "crypto",
+                "microsoft", "apple", "applecn", "github", "steam", "steamcn",
+                "speedtest", "socialmedia", "streaming", "direct", "proxy",
+                "china", "download", "games", "crypto", "tracking", "private",
+                "cloudflare", "bilibili", "onedrive", "dns", "googlefcm",
+                "12306", "disney", "hbo", "emby", "paypal", "pixiv",
+                "bahamut", "newsmedia", "xptv", "messages", "instagram",
             }:
                 target_cat = parts[0]
             else:
@@ -354,9 +357,9 @@ def apply_whitelist(by_category: dict[str, set[str]]) -> None:
     def covered(domain: str) -> bool:
         return any(domain == w or domain.endswith("." + w) for w in wl)
 
-    # Only filter 'reject' — whitelist protects against false-positive blocking,
+    # Only filter reject-type categories — whitelist protects against false-positive blocking,
     # not against routing to proxy (ai/google/telegram etc. NEED proxy access)
-    for cat in ("reject",):
+    for cat in ("reject", "tracking"):
         if cat not in by_category:
             continue
         before = len(by_category[cat])
@@ -441,8 +444,10 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
         "streaming": "Streaming",
         "microsoft": "Microsoft",
         "apple": "Apple",
+        "applecn": "AppleCN",
         "github": "GitHub",
         "steam": "Steam",
+        "steamcn": "SteamCN",
         "tiktok": "TikTok",
         "spotify": "Spotify",
         "netflix": "Netflix",
@@ -460,6 +465,22 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
         "games": "Games",
         "crypto": "Crypto",
         "tracking": "Tracking",
+        "private": "Private",
+        "cloudflare": "Cloudflare",
+        "bilibili": "Bilibili",
+        "onedrive": "OneDrive",
+        "dns": "DNS",
+        "googlefcm": "GoogleFCM",
+        "12306": "12306",
+        "disney": "Disney",
+        "hbo": "HBO",
+        "emby": "Emby",
+        "paypal": "PayPal",
+        "pixiv": "Pixiv",
+        "bahamut": "Bahamut",
+        "newsmedia": "NewsMedia",
+        "xptv": "XPTV",
+        "messages": "Messages",
     }
 
     for category, domain_set in by_category.items():

@@ -1,20 +1,10 @@
 # ============================================================
 # upstreams.yaml — 已审核的上游规则源清单
 # ------------------------------------------------------------
-# fetch_and_merge.py 会按此清单拉取每个 enabled 的源。
-#
-# 字段说明:
-#   name      可读名称，用于日志输出
-#   url       上游 raw 链接
-#   format    上游原始格式: domain | classical | hosts | adblock
-#   category  归类到哪个产物文件名: reject | ai | google | telegram | ...
-#   enabled   是否启用 (未审核 license 与质量前请保持 false)
-#
-# 产物映射:
-#   category: reject  → Reject.mrs / Reject.srs / Reject.list
-#   category: ai      → AI.mrs / AI.srs / AI.list
-#   category: google  → Google.mrs / Google.srs / Google.list
-#   ...以此类推（首字母大写）
+# 产物映射: category → 输出目录
+#   category: reject → mihomo/Reject/Reject-Site.mrs
+#   category: ai     → mihomo/AI/AI-Site.mrs
+#   ...以此类推
 # ============================================================
 
 sources:
@@ -39,14 +29,17 @@ sources:
     category: reject
     enabled: true
 
-  - name: LM-Firefly-Adblock
-    url: https://raw.githubusercontent.com/LM-Firefly/Rules/master/Adblock-lite.list
+  # ════════════════════════════════════════════════════════════
+  # 用户追踪 (Tracking) — 区别于广告
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Privacy
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy.list
     format: classical
-    category: reject
-    enabled: false
+    category: tracking
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
-  # AI 服务 (合并 OpenAI + Claude + Copilot + Gemini)
+  # AI 服务
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-OpenAI
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
@@ -79,6 +72,15 @@ sources:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
     format: classical
     category: google
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Google FCM (Firebase 推送)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-GoogleFCM
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM.list
+    format: classical
+    category: googlefcm
     enabled: true
 
   # ════════════════════════════════════════════════════════════
@@ -118,6 +120,24 @@ sources:
     enabled: true
 
   # ════════════════════════════════════════════════════════════
+  # Disney+
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Disney
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list
+    format: classical
+    category: disney
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # HBO
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-HBO
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.list
+    format: classical
+    category: hbo
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
   # Spotify
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Spotify
@@ -127,12 +147,30 @@ sources:
     enabled: true
 
   # ════════════════════════════════════════════════════════════
+  # 流媒体合集 (Streaming = GlobalMedia)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-GlobalMedia
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list
+    format: classical
+    category: streaming
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
   # Microsoft
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Microsoft
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
     format: classical
     category: microsoft
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # OneDrive
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-OneDrive
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.list
+    format: classical
+    category: onedrive
     enabled: true
 
   # ════════════════════════════════════════════════════════════
@@ -163,7 +201,7 @@ sources:
     enabled: true
 
   # ════════════════════════════════════════════════════════════
-  # 第二优先级（社交 / 流媒体 / 游戏）
+  # Facebook / Meta
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Facebook
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
@@ -171,32 +209,191 @@ sources:
     category: facebook
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Instagram
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Instagram
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list
     format: classical
     category: instagram
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Discord
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Discord
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list
     format: classical
     category: discord
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Reddit
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Reddit
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.list
     format: classical
     category: reddit
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # TikTok
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-TikTok
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
     format: classical
     category: tiktok
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Steam
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Steam
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.list
     format: classical
     category: steam
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # SteamCN (Steam 国服直连)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-SteamCN
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list
+    format: classical
+    category: steamcn
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Games (游戏平台合集)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Game
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list
+    format: classical
+    category: games
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Cloudflare
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Cloudflare
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.list
+    format: classical
+    category: cloudflare
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Bilibili (B站直连)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-BiliBili
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list
+    format: classical
+    category: bilibili
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # China (中国直连域名)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-China
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+    format: classical
+    category: china
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Direct (直连域名总表)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Direct
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.list
+    format: classical
+    category: direct
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Private / Local (私有网络 / 局域网)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Lan
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.list
+    format: classical
+    category: private
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Proxy (需代理域名总表)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Global
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list
+    format: classical
+    category: proxy
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # DNS (公共 DNS 服务)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-DNS
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DNS/DNS.list
+    format: classical
+    category: dns
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Download (下载服务)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Download
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.list
+    format: classical
+    category: download
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # 12306 (铁路购票直连)
+  # ════════════════════════════════════════════════════════════
+  - name: HosheaPDNX-12306
+    url: https://raw.githubusercontent.com/HosheaPDNX/rule-set/stable/Shadowrocket/12306/12306-Site.list
+    format: classical
+    category: "12306"
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Crypto (加密货币)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Crypto
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Crypto/Crypto.list
+    format: classical
+    category: crypto
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Emby (媒体服务器)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Emby
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.list
+    format: classical
+    category: emby
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # PayPal
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-PayPal
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.list
+    format: classical
+    category: paypal
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Pixiv (日本插画平台)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Pixiv
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Pixiv/Pixiv.list
+    format: classical
+    category: pixiv
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Bahamut (巴哈姆特 / 台湾流媒体)
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Bahamut
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.list
+    format: classical
+    category: bahamut
     enabled: true
