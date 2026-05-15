@@ -2,10 +2,57 @@
 # blacklist.txt — 维护者自定义黑名单
 # ------------------------------------------------------------
 # 这些域名会被强制并入最终的 reject 集合（除非命中白名单）。
-# 适合用来补充上游漏掉的恶意 / 追踪 / 广告域名。
+# 适合补充上游漏掉的、或上游不愿收录的恶意/追踪/遥测域名。
 # 一行一个域名，支持注释 (# 开头)。
+#
+# 注意：大部分广告域名已由 blackmatrix7 上游覆盖（25万+条），
+# 这里只放"上游漏掉的"或"通用基础设施级"的补充。
 # ============================================================
 
-ads.example.com
-tracker.example.net
-example-malware.com
+# ─── 遥测 / 数据收集（大厂通用端点）─────────────────────────
+# 这些是各平台用于收集用户行为数据的专用域名。
+# 注意：*.microsoft.com 子域被白名单保护（防止 Office/Windows 断网），
+#       微软遥测由 blackmatrix7 上游在 CI 联网时覆盖。
+#       同理 *.baidu.com 子域也被白名单保护。
+
+umeng.com
+cnzz.com
+51.la
+tanx.com
+mmstat.com
+# 小米遥测
+tracking.miui.com
+data.mistat.xiaomi.com
+# OPPO/vivo 遥测
+aps.heytapmobi.com
+aps.vivofs.com
+
+# ─── 广告联盟 SDK（移动端常见）────────────────────────────────
+# 这些是嵌入在 App 里的广告 SDK 回传域名
+# 注意：*.baidu.com 子域被白名单保护，百度广告由上游覆盖
+
+adview.com
+admaster.com.cn
+adsame.com
+adsmogo.com
+domob.cn
+inmobi.com
+
+# ─── 挖矿脚本域名 ────────────────────────────────────────────
+coinhive.com
+coin-hive.com
+crypto-loot.com
+cryptaloot.pro
+jsecoin.com
+authedmine.com
+minero.cc
+webmine.cz
+
+# ─── 已知恶意 / 钓鱼基础设施 ─────────────────────────────────
+# 这些是被多个威胁情报源标记的恶意 C2 / 钓鱼基础设施域名
+
+malware-check.disconnect.me
+# 常见钓鱼模板域名（仿冒登录页）
+login-verify.com
+account-security-alert.com
+secure-login-verify.com
