@@ -1,0 +1,60 @@
+# ============================================================
+# download-clouddrive.txt — 网盘/云存储服务域名
+# ------------------------------------------------------------
+# 文件名前缀 "download-" → 进入 category=download 产物
+# 这些域名是各大网盘/云存储的核心域名。
+# 在 mihomo 配置中应放在 Google/Microsoft 等大分类之前，
+# 确保网盘流量优先匹配到"下载"策略组。
+#
+# 使用建议：
+#   rules:
+#     - RULE-SET,Download,💾 网盘下载    ← 放在 Google 之前
+#     - RULE-SET,Google,🔍 Google
+# ============================================================
+
+# ─── Google Drive / Docs / Photos ────────────────────────────
+drive.google.com
+docs.google.com
+sheets.google.com
+slides.google.com
+photos.google.com
+googledrive.com
+googleusercontent.com
+clients6.google.com
+lh3.googleusercontent.com
+lh4.googleusercontent.com
+lh5.googleusercontent.com
+lh6.googleusercontent.com
+doc-0c-0c-docs.googleusercontent.com
+video.google.com
+drive.usercontent.google.com
+
+# ─── OneDrive / SharePoint ───────────────────────────────────
+onedrive.live.com
+onedrive.com
+sharepoint.com
+storage.live.com
+docs.live.net
+skyapi.onedrive.live.com
+
+# ─── Dropbox ─────────────────────────────────────────────────
+dropbox.com
+dropboxusercontent.com
+dropboxapi.com
+dropboxstatic.com
+
+# ─── iCloud Drive ────────────────────────────────────────────
+icloud-content.com
+
+# ─── MEGA ─────────────────────────────────────────────────────
+mega.nz
+mega.co.nz
+mega.io
+
+# ─── 其他网盘 ─────────────────────────────────────────────────
+mediafire.com
+4shared.com
+box.com
+box.net
+pcloud.com
+sync.com
