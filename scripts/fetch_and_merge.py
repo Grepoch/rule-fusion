@@ -285,29 +285,66 @@ def fetch_all(sources: Iterable[Source], *, offline: bool) -> dict[str, set[str]
 
 
 def merge_local(by_category: dict[str, set[str]]) -> None:
-    """Merge blacklist.txt + custom/*.{txt,list,yaml,yml} into 'reject'."""
-    extra: set[str] = set()
+    """Merge local files into their respective category buckets.
 
+    Convention:
+      - src/blacklist.txt → always merges into 'reject'
+      - src/custom/reject-*.txt → merges into 'reject'
+      - src/custom/ai-*.txt → merges into 'ai'
+      - src/custom/<category>-*.txt → merges into '<category>'
+      - src/custom/*.txt (no dash prefix) → merges into 'reject' (legacy)
+    """
+    # blacklist.txt → reject
+    reject_extra: set[str] = set()
     for line in read_lines(BLACKLIST_FILE):
         d = _normalize(line)
         if d:
-            extra.add(d)
+            reject_extra.add(d)
 
     if CUSTOM_DIR.exists():
         for f in sorted(CUSTOM_DIR.iterdir()):
-            if f.is_file() and f.suffix.lower() in {".txt", ".list", ".yaml", ".yml"}:
-                for line in read_lines(f):
-                    d = _normalize(line)
-                    if d:
-                        extra.add(d)
+            if not f.is_file() or f.suffix.lower() not in {".txt", ".list", ".yaml", ".yml"}:
+                continue
+            # Determine target category from filename prefix: <category>-xxx.txt
+            stem = f.stem.lower()
+            parts = stem.split("-", 1)
+            if len(parts) >= 2 and parts[0] in {
+                "reject", "ai", "google", "telegram", "twitter", "facebook",
+                "discord", "reddit", "youtube", "netflix", "spotify", "tiktok",
+                "microsoft", "apple", "github", "steam", "speedtest",
+                "socialmedia", "streaming", "direct", "proxy", "china",
+                "download", "games", "crypto",
+            }:
+                target_cat = parts[0]
+            else:
+                target_cat = "reject"  # default
 
-    if extra:
-        log.info("local additions → reject: %d", len(extra))
-        by_category.setdefault("reject", set()).update(extra)
+            for line in read_lines(f):
+                d = _normalize(line)
+                if d:
+                    if target_cat == "reject":
+                        reject_extra.add(d)
+                    else:
+                        by_category.setdefault(target_cat, set()).add(d)
+
+    if reject_extra:
+        log.info("local additions → reject: %d", len(reject_extra))
+        by_category.setdefault("reject", set()).update(reject_extra)
+
+    # Log other category additions
+    for cat in list(by_category.keys()):
+        if cat != "reject":
+            count = len(by_category[cat])
+            if count > 0:
+                log.info("category %s total: %d", cat, count)
 
 
 def apply_whitelist(by_category: dict[str, set[str]]) -> None:
-    """Remove any domain (and its sub-domains) covered by whitelist.txt."""
+    """Remove any domain (and its sub-domains) covered by whitelist.txt.
+
+    Only applies to the 'reject' category — other categories (ai, proxy, etc.)
+    are routing rules, not block rules, so whitelist protection is irrelevant.
+    """
     wl = {_normalize(line) for line in read_lines(WHITELIST_FILE)}
     wl.discard("")
     if not wl:
@@ -317,7 +354,11 @@ def apply_whitelist(by_category: dict[str, set[str]]) -> None:
     def covered(domain: str) -> bool:
         return any(domain == w or domain.endswith("." + w) for w in wl)
 
-    for cat in list(by_category.keys()):
+    # Only filter 'reject' — whitelist protects against false-positive blocking,
+    # not against routing to proxy (ai/google/telegram etc. NEED proxy access)
+    for cat in ("reject",):
+        if cat not in by_category:
+            continue
         before = len(by_category[cat])
         by_category[cat] = {d for d in by_category[cat] if not covered(d)}
         after = len(by_category[cat])

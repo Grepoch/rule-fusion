@@ -57,23 +57,29 @@ sources:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
     format: classical
     category: ai
-    enabled: false
+    enabled: true
 
   - name: blackmatrix7-Claude
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
     format: classical
     category: ai
-    enabled: false
+    enabled: true
 
   - name: blackmatrix7-Copilot
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list
     format: classical
     category: ai
-    enabled: false
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
   # Google
   # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Gemini
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
+    format: classical
+    category: ai
+    enabled: true
+
   - name: blackmatrix7-Google
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_Domain.txt
     format: domain

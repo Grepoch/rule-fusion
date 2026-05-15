@@ -1,0 +1,87 @@
+# ============================================================
+# ai-services.txt — AI 服务域名（手动维护补充）
+# ------------------------------------------------------------
+# 文件名前缀 "ai-" 表示这些域名会进入 category=ai 的产物。
+# 上游 (blackmatrix7 OpenAI/Claude/Copilot/Gemini) 会自动合并，
+# 这里补充上游未覆盖的 AI 平台和服务。
+#
+# 来源参考:
+#   - Grepoch/Rule-Set mihomo/AI.txt (自有整理)
+#   - blackmatrix7/ios_rule_script (上游自动)
+#   - HosheaPDNX/rule-set (参考)
+# ============================================================
+
+# ─── OpenAI / ChatGPT ────────────────────────────────────────
+openai.com
+chatgpt.com
+sora.com
+oaistatic.com
+oaiusercontent.com
+chatgpt.livekit.cloud
+host.livekit.cloud
+turn.livekit.cloud
+
+# ─── Anthropic / Claude ──────────────────────────────────────
+anthropic.com
+claude.ai
+claudeusercontent.com
+
+# ─── Google AI ────────────────────────────────────────────────
+deepmind.com
+aistudio.google.com
+generativelanguage.googleapis.com
+
+# ─── GitHub Copilot ──────────────────────────────────────────
+# 注意：核心域名由 Copilot 上游覆盖，这里补充额外的
+
+# ─── 其他 AI 平台（上游未覆盖）────────────────────────────────
+perplexity.ai
+poe.com
+you.com
+kimi.com
+moonshot.cn
+doubao.com
+coze.com
+
+# ─── AI 图像 / 视频 / 音频 ───────────────────────────────────
+midjourney.com
+civitai.com
+stability.ai
+runwayml.com
+suno.com
+suno.ai
+elevenlabs.io
+udio.com
+pika.art
+luma.ai
+
+# ─── AI 开发平台 / 模型托管 ──────────────────────────────────
+huggingface.co
+replicate.com
+together.ai
+anyscale.com
+fireworks.ai
+groq.com
+mistral.ai
+cohere.com
+ai21.com
+
+# ─── AI 对话 / 角色 ──────────────────────────────────────────
+character.ai
+janitorai.com
+crushon.ai
+chai-research.com
+
+# ─── AI 搜索 / 写作 ──────────────────────────────────────────
+jasper.ai
+writesonic.com
+copy.ai
+notion.ai
+gamma.app
+
+# ─── AI 编程 ─────────────────────────────────────────────────
+cursor.com
+codeium.com
+tabnine.com
+sourcegraph.com
+replit.com
