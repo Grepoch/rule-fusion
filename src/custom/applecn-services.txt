@@ -1,0 +1,56 @@
+# ============================================================
+# applecn-services.txt — Apple 中国区服务域名
+# ------------------------------------------------------------
+# 文件名前缀 "applecn-" → 进入 category=applecn 产物
+# 这些域名是 Apple 在中国大陆的 CDN / iCloud 中国区 / App Store 中国区，
+# 应走直连以获得最佳速度，不应走代理。
+#
+# 来源参考:
+#   - 666OS/rules AppleCN.txt
+#   - blackmatrix7 Apple.list 中的 .cn / .com.cn 域名
+# ============================================================
+
+# ─── Apple 中国官方域名 ──────────────────────────────────────
+apple.com.cn
+apple.cn
+apple-dns.cn
+apple-dns.com.cn
+
+# ─── iCloud 中国区（云上贵州）─────────────────────────────────
+icloud.com.cn
+
+# ─── Apple CDN / 推送 / 定位（国内节点）──────────────────────
+cn.apple.com
+cn-ssl.ls.apple.com
+cn.ls.apple.com
+gspe19-cn-ssl.ls.apple.com
+ls.apple.com
+lcdn-locator.apple.com
+lcdn-registration.apple.com
+push.apple.com
+push-apple.com.akadns.net
+ess.apple.com
+store.apple.com
+
+# ─── Apple 国内 CDN 加速 ─────────────────────────────────────
+apple-cloudkit.com
+apple-fitness.com
+apple-livephotoskit.com
+apzones.com
+
+# ─── Apple 中国相关子品牌 ────────────────────────────────────
+apple-ibooks.cn
+apple-maps.cn
+applecenter.cn
+applecenter.com.cn
+applecomputer.cn
+applecomputer.com.cn
+appledns.cn
+appledns.com.cn
+applesiri.cn
+beats1.cn
+beats1.com.cn
+beats2.com.cn
+beats4.cn
+beatsbydre.com.cn
+beatsep.cn
