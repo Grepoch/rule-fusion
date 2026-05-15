@@ -338,10 +338,10 @@ def emit_shadowrocket(domains: list[str], outfile: Path, policy: str = "REJECT")
 
 
 def emit_mihomo_domain_txt(domains: list[str], outfile: Path) -> None:
-    """mihomo domain-format text, ready for `mihomo convert-ruleset domain text`."""
+    """mihomo domain-format text, ready for `mihomo convert-ruleset domain text`.
+    NOTE: No comment lines — mihomo's parser rejects them."""
     outfile.parent.mkdir(parents=True, exist_ok=True)
-    lines = [HEADER, f"# mihomo domain text / {outfile.stem}"]
-    lines.extend(f"+.{d}" for d in domains)
+    lines = [f"+.{d}" for d in domains]
     outfile.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
