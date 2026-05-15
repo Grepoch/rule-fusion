@@ -10,16 +10,11 @@
 #   category  归类到哪个产物文件名: reject | ai | google | telegram | ...
 #   enabled   是否启用 (未审核 license 与质量前请保持 false)
 #
-# 安全约定:
-#   - 任何新增源默认 enabled: false，先在本地跑过、对过 diff 再开启
-#   - URL 必须是 raw 链接，不要写仓库主页
-#   - 优先选用稳定 main / master 分支，避免引用 commit hash 失效
-#
 # 产物映射:
-#   category: reject  → dist/mihomo/domain/Reject.mrs
-#   category: ai      → dist/mihomo/domain/AI.mrs
-#   category: google  → dist/mihomo/domain/Google.mrs
-#   ...以此类推
+#   category: reject  → Reject.mrs / Reject.srs / Reject.list
+#   category: ai      → AI.mrs / AI.srs / AI.list
+#   category: google  → Google.mrs / Google.srs / Google.list
+#   ...以此类推（首字母大写）
 # ============================================================
 
 sources:
@@ -51,7 +46,7 @@ sources:
     enabled: false
 
   # ════════════════════════════════════════════════════════════
-  # AI 服务
+  # AI 服务 (合并 OpenAI + Claude + Copilot + Gemini)
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-OpenAI
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
@@ -71,113 +66,137 @@ sources:
     category: ai
     enabled: true
 
-  # ════════════════════════════════════════════════════════════
-  # Google
-  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Gemini
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
     format: classical
     category: ai
     enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Google
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Google
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+    format: classical
     category: google
-    enabled: false
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
   # Telegram
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Telegram
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+    format: classical
     category: telegram
-    enabled: false
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
-  # 社交媒体 (SocialMedia)
+  # Twitter / X
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Twitter
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+    format: classical
     category: twitter
-    enabled: false
-
-  - name: blackmatrix7-Facebook
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook_Domain.txt
-    format: domain
-    category: facebook
-    enabled: false
-
-  - name: blackmatrix7-Discord
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord_Domain.txt
-    format: domain
-    category: discord
-    enabled: false
-
-  - name: blackmatrix7-Reddit
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit_Domain.txt
-    format: domain
-    category: reddit
-    enabled: false
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
-  # 流媒体 (Streaming)
+  # YouTube
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-YouTube
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list
+    format: classical
     category: youtube
-    enabled: false
-
-  - name: blackmatrix7-Netflix
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Domain.txt
-    format: domain
-    category: netflix
-    enabled: false
-
-  - name: blackmatrix7-Spotify
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify_Domain.txt
-    format: domain
-    category: spotify
-    enabled: false
-
-  - name: blackmatrix7-TikTok
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_Domain.txt
-    format: domain
-    category: tiktok
-    enabled: false
+    enabled: true
 
   # ════════════════════════════════════════════════════════════
-  # 服务
+  # Netflix
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Netflix
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list
+    format: classical
+    category: netflix
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Spotify
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Spotify
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.list
+    format: classical
+    category: spotify
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Microsoft
   # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Microsoft
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+    format: classical
     category: microsoft
-    enabled: false
+    enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # Apple
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-Apple
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+    format: classical
     category: apple
-    enabled: false
+    enabled: true
 
+  # ════════════════════════════════════════════════════════════
+  # GitHub
+  # ════════════════════════════════════════════════════════════
   - name: blackmatrix7-GitHub
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+    format: classical
     category: github
-    enabled: false
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # Speedtest
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Speedtest
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.list
+    format: classical
+    category: speedtest
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════
+  # 第二优先级（社交 / 流媒体 / 游戏）
+  # ════════════════════════════════════════════════════════════
+  - name: blackmatrix7-Facebook
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
+    format: classical
+    category: facebook
+    enabled: true
+
+  - name: blackmatrix7-Instagram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list
+    format: classical
+    category: instagram
+    enabled: true
+
+  - name: blackmatrix7-Discord
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list
+    format: classical
+    category: discord
+    enabled: true
+
+  - name: blackmatrix7-Reddit
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.list
+    format: classical
+    category: reddit
+    enabled: true
+
+  - name: blackmatrix7-TikTok
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+    format: classical
+    category: tiktok
+    enabled: true
 
   - name: blackmatrix7-Steam
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_Domain.txt
-    format: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.list
+    format: classical
     category: steam
-    enabled: false
-
-  - name: blackmatrix7-Speedtest
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest_Domain.txt
-    format: domain
-    category: speedtest
-    enabled: false
+    enabled: true
