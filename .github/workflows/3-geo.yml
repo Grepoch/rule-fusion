@@ -22,29 +22,29 @@ jobs:
       - name: Prepare output directory
         run: mkdir -p geo/ip geo/site
 
-      - name: Download GeoIP (Loyalsoldier)
+      - name: Download GeoIP
         run: |
           set -euo pipefail
-          # geoip.dat (v2ray format)
+          # geoip.dat — v2ray/xray format (from Loyalsoldier/geoip)
           curl -fsSL -o geo/ip/geoip.dat \
             "https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat"
-          # geoip.db (sing-box format)
+          # geoip.db — sing-box/mihomo format (from MetaCubeX/meta-rules-dat)
           curl -fsSL -o geo/ip/geoip.db \
-            "https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.db"
-          # Country.mmdb (MaxMind format, used by mihomo)
+            "https://github.com/MetaCubeX/meta-rules-dat/releases/latest/download/geoip.db"
+          # Country.mmdb — MaxMind format, used by mihomo (from Loyalsoldier/geoip)
           curl -fsSL -o geo/ip/Country.mmdb \
             "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb"
           ls -lh geo/ip/
 
-      - name: Download GeoSite (Loyalsoldier/domain-list-custom)
+      - name: Download GeoSite
         run: |
           set -euo pipefail
-          # geosite.dat (v2ray format)
+          # geosite.dat — v2ray/xray format (from Loyalsoldier/domain-list-custom)
           curl -fsSL -o geo/site/geosite.dat \
             "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.dat"
-          # geosite.db (sing-box format)
+          # geosite.db — sing-box/mihomo format (from MetaCubeX/meta-rules-dat)
           curl -fsSL -o geo/site/geosite.db \
-            "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.db"
+            "https://github.com/MetaCubeX/meta-rules-dat/releases/latest/download/geosite.db"
           ls -lh geo/site/
 
       - name: List geo artifacts
