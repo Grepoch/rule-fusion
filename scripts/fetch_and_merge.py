@@ -413,14 +413,20 @@ def emit_singbox_source(domains: list[str], outfile: Path) -> None:
 
 def emit_all(by_category: dict[str, set[str]]) -> None:
     """
-    Emit multi-format products into the target directory structure:
+    Emit multi-format products following HosheaPDNX/rule-set directory structure:
 
-        dist/mihomo/domain/<Cat>.txt       (domain-text, for compiling to .mrs)
-        dist/mihomo/domain/<Cat>.yaml      (rule-provider yaml source)
-        dist/sing-box/domain/<Cat>.json    (rule-set source, for compiling to .srs)
-        dist/shadowrocket/<Cat>.list       (text rules)
+        dist/mihomo/<Cat>/<Cat>-Site.txt         (domain-text, for compiling to .mrs)
+        dist/mihomo/<Cat>/<Cat>-Site.yaml        (rule-provider yaml, behavior: domain)
+        dist/sing-box/<Cat>/<Cat>-Site.json      (rule-set source, for compiling to .srs)
+        dist/Shadowrocket/<Cat>/<Cat>-Site.list  (text rules)
 
-    Category names are capitalized for consistency with HosheaPDNX/rule-set style:
+    Future (when IP rules are added):
+        dist/mihomo/<Cat>/<Cat>-IP.txt
+        dist/mihomo/<Cat>/<Cat>-IP.yaml
+        dist/sing-box/<Cat>/<Cat>-IP.json
+        dist/Shadowrocket/<Cat>/<Cat>-IP.list
+
+    Category names are capitalized for consistency:
         reject → Reject, ai → AI, google → Google, etc.
     """
     DIST.mkdir(parents=True, exist_ok=True)
@@ -445,6 +451,7 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
         "facebook": "Facebook",
         "discord": "Discord",
         "reddit": "Reddit",
+        "instagram": "Instagram",
         "direct": "Direct",
         "proxy": "Proxy",
         "china": "China",
@@ -452,6 +459,7 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
         "speedtest": "Speedtest",
         "games": "Games",
         "crypto": "Crypto",
+        "tracking": "Tracking",
     }
 
     for category, domain_set in by_category.items():
@@ -461,18 +469,18 @@ def emit_all(by_category: dict[str, set[str]]) -> None:
             continue
 
         # Use display name if mapped, otherwise capitalize first letter
-        display = DISPLAY_NAMES.get(category.lower(), category.capitalize())
-        log.info("emit category=%s (%s) domains=%d", category, display, len(domains))
+        cat = DISPLAY_NAMES.get(category.lower(), category.capitalize())
+        log.info("emit category=%s (%s) domains=%d", category, cat, len(domains))
 
-        # mihomo/domain/<Cat>.txt  (for binary compilation)
-        emit_mihomo_domain_txt(domains, DIST / "mihomo" / "domain" / f"{display}.txt")
-        # mihomo/domain/<Cat>.yaml (rule-provider source)
-        emit_mihomo_yaml(domains, DIST / "mihomo" / "domain" / f"{display}.yaml")
-        # sing-box/domain/<Cat>.json (rule-set source)
-        emit_singbox_source(domains, DIST / "sing-box" / "domain" / f"{display}.json")
-        # shadowrocket/<Cat>.list
-        policy = "REJECT" if category.lower() == "reject" else "PROXY"
-        emit_shadowrocket(domains, DIST / "shadowrocket" / f"{display}.list", policy=policy)
+        # mihomo/<Cat>/<Cat>-Site.txt  (for binary compilation to .mrs)
+        emit_mihomo_domain_txt(domains, DIST / "mihomo" / cat / f"{cat}-Site.txt")
+        # mihomo/<Cat>/<Cat>-Site.yaml (rule-provider source)
+        emit_mihomo_yaml(domains, DIST / "mihomo" / cat / f"{cat}-Site.yaml")
+        # sing-box/<Cat>/<Cat>-Site.json (rule-set source, for compilation to .srs)
+        emit_singbox_source(domains, DIST / "sing-box" / cat / f"{cat}-Site.json")
+        # Shadowrocket/<Cat>/<Cat>-Site.list
+        policy = "REJECT" if category.lower() in ("reject", "tracking") else "PROXY"
+        emit_shadowrocket(domains, DIST / "Shadowrocket" / cat / f"{cat}-Site.list", policy=policy)
 
 
 # --------------------------------------------------------------------------- #

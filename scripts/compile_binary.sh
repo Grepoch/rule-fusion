@@ -39,8 +39,8 @@ count=0
 # ---- mihomo: recursively find all .txt → compile to .mrs ----
 while IFS= read -r -d '' src; do
   out="${src%.txt}.mrs"
-  # Determine behavior from path: ip/ → ipcidr, domain/ → domain
-  if [[ "${src}" == *"/ip/"* ]]; then
+  # Determine behavior from filename: *-IP.txt → ipcidr, *-Site.txt → domain
+  if [[ "${src}" == *"-IP.txt" ]]; then
     behavior="ipcidr"
   else
     behavior="domain"
