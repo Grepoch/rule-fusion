@@ -178,17 +178,22 @@ Loyalsoldier 只提供 `.dat` 和 `.mmdb`，不提供 `.db`。
 
 ### 未来可扩展
 
-- 加 IP 规则 emitter（输出到 `mihomo/ip/` 和 `sing-box/ip/`）
-- 加 `category: direct`（国内直连域名集）
-- 加 `category: proxy`（需要代理的域名集）
-- 加 classical 格式 emitter（混合 domain + ip + keyword）
-- 加规则集 README 自动生成（类似 666OS/rules 的表格）
+- 加 IP 规则 emitter（输出到 `mihomo/<Cat>/<Cat>-IP.txt`）
+- 加 classical 格式 emitter（`mihomo/<Cat>/<Cat>-Site-Classical.yaml`）
+- 加 surge 格式 emitter
+- 加 sing-box 多版本支持（V1/V2/V3）
+- 补充 AppleCN / Messages / NewsMedia / XPTV / LocationDKS / SystemOTA（需手动整理源）
 
 ---
 
 ## 九、Commit 历史摘要
 
 ```
+9e72432 feat: enable all 40 categories (17 recommended + 14 optional)
+a6df33f refactor: adopt HosheaPDNX directory structure (mihomo/<Cat>/<Cat>-Site.mrs)
+790984d feat: add AI category with 105 domains
+e503c40 docs: add CATEGORY_PLAN.md
+ded6447 docs: add CONTEXT.md
 0825b1a feat: add production blacklist (telemetry, ad SDK, mining, phishing)
 afebfa6 docs: update README with maintenance guide
 1edfc24 fix: correct geo download URLs (.db from MetaCubeX, not Loyalsoldier)
@@ -197,7 +202,6 @@ e91b9da fix: bash compat issues in compile_binary.sh
 113de06 feat: multi-category + subdirectory structure + geo workflow
 20bbf92 refactor: split to dual-repo architecture (rule-fusion + rules)
 c03e5af feat: production hardening (whitelist 100+, IP filter fix, CODEOWNERS, fork guard)
-738d0d5 Revise credits section
 a3ac691 Merge PR #1 (first successful auto-sync)
 3f343e4 feat: initial scaffold
 ```
@@ -208,7 +212,7 @@ a3ac691 Merge PR #1 (first successful auto-sync)
 
 如果你是另一个 AI 助手被要求继续开发此项目：
 
-1. **先读 `src/upstreams.yaml`** — 了解当前启用了哪些上游
+1. **先读 `src/upstreams.yaml`** — 了解当前启用了哪些上游（目前 40 个分类）
 2. **先读 `scripts/fetch_and_merge.py`** — 这是核心 pipeline，所有逻辑在这里
 3. **不要碰 `Grepoch/rules` 仓库** — 它是纯自动化产物，由 CI 管理
 4. **改完代码先本地跑 `python3 scripts/fetch_and_merge.py --offline`** — 验证不报错
@@ -216,3 +220,7 @@ a3ac691 Merge PR #1 (first successful auto-sync)
 6. **mihomo 的 domain txt 不能有注释行** — 这是一个已踩过的坑
 7. **bash 脚本里 `((count++))` 要加 `|| true`** — `set -e` 下的陷阱
 8. **deploy key 只对 rules 仓库有写权限** — secret 名为 `DEPLOY_KEY_RULES`
+9. **目录结构是 `mihomo/<Cat>/<Cat>-Site.mrs`** — 不是 `mihomo/domain/<Cat>.mrs`
+10. **白名单只过滤 reject 和 tracking** — 其他 category 是路由规则，不应被白名单干扰
+11. **`dist-readme/README.md` 会被复制到 rules 仓库** — 修改它等于修改 rules 仓库的 README
+12. **CONTEXT.md 由 Kiro hook 自动提醒更新** — 每次重大变更后 AI 会被提醒更新此文件

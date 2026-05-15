@@ -76,6 +76,9 @@ jobs:
       - name: List final dist
         run: ls -lhR dist
 
+      - name: Add README to dist
+        run: cp dist-readme/README.md dist/README.md
+
       - name: Publish dist/ → Grepoch/rules@release
         uses: peaceiris/actions-gh-pages@v4
         with:
