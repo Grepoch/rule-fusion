@@ -55,7 +55,8 @@ rule-fusion/                         ← 本仓库（源码）
 ├── .github/
 │   └── workflows/
 │       ├── 1-sync-upstream.yml      # 定时拉取 → 创建 PR（需人工合并）
-│       └── 2-build-release.yml      # 合并后编译 → 推送到 Grepoch/rules
+│       ├── 2-build-release.yml      # 合并后编译 → 推送到 Grepoch/rules@release
+│       └── 3-geo.yml               # 每周拉取 GeoIP/GeoSite → 推送到 Grepoch/rules@geo
 │
 ├── src/                             # 维护者手动控制的核心数据
 │   ├── upstreams.yaml               # 上游源清单（含格式 / 分类 / 开关）
@@ -78,16 +79,29 @@ rule-fusion/                         ← 本仓库（源码）
 └── README.md
 
 rules/                               ← 产物仓库 (Grepoch/rules)
-└── release 分支
-    ├── mihomo/
-    │   ├── reject.txt               # domain-text 源
-    │   ├── reject.yaml              # rule-provider yaml 源
-    │   └── reject.mrs               # 二进制（推荐）
-    ├── sing-box/
-    │   ├── reject.json              # rule-set 源
-    │   └── reject.srs               # 二进制（推荐）
-    └── shadowrocket/
-        └── reject.list              # 文本规则
+├── release 分支（规则集）
+│   ├── mihomo/domain/
+│   │   ├── Reject.txt / Reject.yaml / Reject.mrs
+│   │   ├── AI.txt / AI.yaml / AI.mrs
+│   │   ├── Google.txt / Google.yaml / Google.mrs
+│   │   └── ...（每个 category 一组）
+│   ├── sing-box/domain/
+│   │   ├── Reject.json / Reject.srs
+│   │   ├── AI.json / AI.srs
+│   │   └── ...
+│   └── shadowrocket/
+│       ├── Reject.list
+│       ├── AI.list
+│       └── ...
+│
+└── geo 分支（GeoIP / GeoSite）
+    ├── ip/
+    │   ├── geoip.dat          (v2ray 格式)
+    │   ├── geoip.db           (sing-box/mihomo 格式)
+    │   └── Country.mmdb       (MaxMind 格式)
+    └── site/
+        ├── geosite.dat        (v2ray 格式)
+        └── geosite.db         (sing-box/mihomo 格式)
 ```
 
 ---
@@ -114,7 +128,7 @@ ls -lhR dist/
 
 ## 订阅地址
 
-> 所有订阅链接指向 [`Grepoch/rules`](https://github.com/Grepoch/rules) 仓库的 `release` 分支。
+> 所有订阅链接指向 [`Grepoch/rules`](https://github.com/Grepoch/rules) 仓库。
 
 ### Mihomo (Clash Meta)
 
@@ -124,8 +138,8 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/Grepoch/rules/release/mihomo/reject.mrs
-    path: ./ruleset/rule-fusion-reject.mrs
+    url: https://raw.githubusercontent.com/Grepoch/rules/release/mihomo/domain/Reject.mrs
+    path: ./ruleset/Reject.mrs
     interval: 86400
 
 rules:
@@ -139,7 +153,7 @@ rules:
   "type": "remote",
   "tag": "rule-fusion-reject",
   "format": "binary",
-  "url": "https://raw.githubusercontent.com/Grepoch/rules/release/sing-box/reject.srs",
+  "url": "https://raw.githubusercontent.com/Grepoch/rules/release/sing-box/domain/Reject.srs",
   "update_interval": "1d"
 }
 ```
@@ -147,15 +161,27 @@ rules:
 ### Shadowrocket
 
 ```text
-RULE-SET,https://raw.githubusercontent.com/Grepoch/rules/release/shadowrocket/reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Grepoch/rules/release/shadowrocket/Reject.list,REJECT
+```
+
+### GeoIP / GeoSite
+
+```yaml
+# mihomo 配置
+geodata-mode: true
+geox-url:
+  geoip: https://raw.githubusercontent.com/Grepoch/rules/geo/ip/geoip.dat
+  geosite: https://raw.githubusercontent.com/Grepoch/rules/geo/site/geosite.dat
+  mmdb: https://raw.githubusercontent.com/Grepoch/rules/geo/ip/Country.mmdb
 ```
 
 ### CDN 加速（jsDelivr）
 
 ```text
-https://cdn.jsdelivr.net/gh/Grepoch/rules@release/mihomo/reject.mrs
-https://cdn.jsdelivr.net/gh/Grepoch/rules@release/sing-box/reject.srs
-https://cdn.jsdelivr.net/gh/Grepoch/rules@release/shadowrocket/reject.list
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/mihomo/domain/Reject.mrs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/sing-box/domain/Reject.srs
+https://cdn.jsdelivr.net/gh/Grepoch/rules@release/shadowrocket/Reject.list
+https://cdn.jsdelivr.net/gh/Grepoch/rules@geo/ip/Country.mmdb
 ```
 
 更多客户端配置示例见 [docs/RULE_FORMATS.md](docs/RULE_FORMATS.md)。
@@ -208,6 +234,84 @@ final_set = merged_set - {d for d in merged_set if covered_by_whitelist(d)}
 ```
 
 `covered_by_whitelist` 既匹配根域（`apple.com`）也匹配子域（`sub.apple.com`），避免上游误把国民级域名加入黑名单导致大面积断网。
+
+---
+
+## 维护指南
+
+> `Grepoch/rules` 是纯自动化产物容器，你永远不需要 clone 它、编辑它、或在本地保留它的副本。
+> 所有控制权都在 `rule-fusion/src/` 里。
+
+### 日常操作速查
+
+| 操作 | 在哪里做 |
+|------|---------|
+| 加 / 改 / 删上游源 | `src/upstreams.yaml` |
+| 加白名单（防误杀） | `src/whitelist.txt` |
+| 加黑名单（手动拦截） | `src/blacklist.txt` |
+| 手写补充规则 | `src/custom/*.txt`（按主题分文件） |
+| 本地预览产物 | `python3 scripts/fetch_and_merge.py && ls dist/` |
+| 查看线上产物 | 浏览器打开 https://github.com/Grepoch/rules/tree/release |
+| 查看 GeoIP/GeoSite | 浏览器打开 https://github.com/Grepoch/rules/tree/geo |
+
+### 新增一个上游规则源
+
+编辑 `src/upstreams.yaml`，加一条：
+
+```yaml
+  - name: 随便起个名字
+    url: 上游的 raw 链接
+    format: domain          # domain | classical | hosts | adblock
+    category: ai            # 决定输出文件名: AI.mrs / AI.srs / AI.list
+    enabled: false          # 先关着，本地验证后再开
+```
+
+**format 怎么选？** 打开 raw 链接看内容格式：
+
+| 内容样式 | format |
+|----------|--------|
+| 一行一个域名：`ads.example.com` | `domain` |
+| 带前缀：`DOMAIN-SUFFIX,ads.example.com,REJECT` | `classical` |
+| hosts 格式：`0.0.0.0 ads.example.com` | `hosts` |
+| 广告过滤：`\|\|ads.example.com^` | `adblock` |
+
+**本地验证：**
+
+```bash
+python3 scripts/fetch_and_merge.py
+# 看日志 "parsed: xxx domains" 是否合理
+# 看 dist/ 里的文件内容是否正常
+```
+
+确认没问题后改 `enabled: true`，`git push` 即可。
+
+### 发现域名被误杀
+
+编辑 `src/whitelist.txt`，加一行根域名：
+
+```text
+被误杀的域名.com
+```
+
+它会自动保护该域名及其所有子域。Push 后下次 CI 生效。
+
+### 等 CI 自动同步（最常见，什么都不用做）
+
+每天凌晨 2 点，`1-sync-upstream.yml` 自动跑。如果上游有更新会开一个 PR：
+
+1. 收到 GitHub 邮件通知
+2. 打开 PR → 点 **Files changed**
+3. 看新增 / 删除的域名是否合理
+4. 合理 → 点 **Merge**（CI 自动编译并推送到 rules 仓库）
+5. 不合理 → 点 **Close**
+
+### 手动触发全量更新
+
+GitHub → Actions → `1 · Sync Upstream Rules` → **Run workflow** → 等 PR → Review → Merge。
+
+### 手动触发 GeoIP/GeoSite 更新
+
+GitHub → Actions → `3 · Geo Data` → **Run workflow**。
 
 ---
 
