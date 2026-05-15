@@ -45,17 +45,17 @@ while IFS= read -r -d '' src; do
   else
     behavior="domain"
   fi
-  log "mihomo convert-ruleset ${behavior} text → ${out#"${ROOT}/"}"
+  log "mihomo convert-ruleset ${behavior} text → ${out}"
   "${MIHOMO_BIN}" convert-ruleset "${behavior}" text "${src}" "${out}"
-  ((count++))
+  ((count++)) || true
 done < <(find "${DIST}/mihomo" -name '*.txt' -print0 2>/dev/null || true)
 
 # ---- sing-box: recursively find all .json → compile to .srs ----
 while IFS= read -r -d '' src; do
   out="${src%.json}.srs"
-  log "sing-box rule-set compile → ${out#"${ROOT}/"}"
+  log "sing-box rule-set compile → ${out}"
   "${SING_BOX_BIN}" rule-set compile --output "${out}" "${src}"
-  ((count++))
+  ((count++)) || true
 done < <(find "${DIST}/sing-box" -name '*.json' -print0 2>/dev/null || true)
 
 log "done. compiled ${count} files."
