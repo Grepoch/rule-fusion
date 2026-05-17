@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "4shared.com",
+        "box.com",
+        "box.net",
+        "docs.live.net",
+        "dropbox.com",
+        "dropboxapi.com",
+        "dropboxstatic.com",
+        "dropboxusercontent.com",
+        "icloud-content.com",
+        "mediafire.com",
+        "mega.co.nz",
+        "mega.io",
+        "mega.nz",
+        "onedrive.com",
+        "onedrive.live.com",
+        "pcloud.com",
+        "sharepoint.com",
+        "skyapi.onedrive.live.com",
+        "storage.live.com",
+        "sync.com"
+      ]
+    }
+  ]
+}
