@@ -1,0 +1,10 @@
++.doc-0c-0c-docs.googleusercontent.com
++.docs.google.com
++.docs.googleusercontent.com
++.drive.google.com
++.drive.usercontent.google.com
++.googledrive.com
++.photos.google.com
++.sheets.google.com
++.slides.google.com
++.video.google.com
