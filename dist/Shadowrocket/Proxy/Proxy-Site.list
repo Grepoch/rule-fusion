@@ -468,6 +468,7 @@ DOMAIN-SUFFIX,54647.org,PROXY
 DOMAIN-SUFFIX,55dndn.com,PROXY
 DOMAIN-SUFFIX,567321.online,PROXY
 DOMAIN-SUFFIX,568xe.com,PROXY
+DOMAIN-SUFFIX,573.jp,PROXY
 DOMAIN-SUFFIX,58avgo.com,PROXY
 DOMAIN-SUFFIX,592r.com,PROXY
 DOMAIN-SUFFIX,59mvmv.com,PROXY
@@ -17193,6 +17194,7 @@ DOMAIN-SUFFIX,keytransparency.com,PROXY
 DOMAIN-SUFFIX,keytransparency.foo,PROXY
 DOMAIN-SUFFIX,keytransparency.org,PROXY
 DOMAIN-SUFFIX,kfs.io,PROXY
+DOMAIN-SUFFIX,kgisystems.com,PROXY
 DOMAIN-SUFFIX,kgslb.com,PROXY
 DOMAIN-SUFFIX,kgv.ac.uk,PROXY
 DOMAIN-SUFFIX,khabdha.org,PROXY
@@ -17314,6 +17316,7 @@ DOMAIN-SUFFIX,kissjav.com,PROXY
 DOMAIN-SUFFIX,kissjav.li,PROXY
 DOMAIN-SUFFIX,kitakyushubank.co.jp,PROXY
 DOMAIN-SUFFIX,kitts.ac.uk,PROXY
+DOMAIN-SUFFIX,kiwi.jp,PROXY
 DOMAIN-SUFFIX,kiwi.kz,PROXY
 DOMAIN-SUFFIX,kiwibrowser.com,PROXY
 DOMAIN-SUFFIX,kiyobank.co.jp,PROXY
@@ -17366,6 +17369,19 @@ DOMAIN-SUFFIX,kompozer.net,PROXY
 DOMAIN-SUFFIX,konachan.com,PROXY
 DOMAIN-SUFFIX,konachan.net,PROXY
 DOMAIN-SUFFIX,konachan.wjcodes.com,PROXY
+DOMAIN-SUFFIX,konami-igaming.online,PROXY
+DOMAIN-SUFFIX,konami.co.jp,PROXY
+DOMAIN-SUFFIX,konami.com,PROXY
+DOMAIN-SUFFIX,konami.net,PROXY
+DOMAIN-SUFFIX,konami.org,PROXY
+DOMAIN-SUFFIX,konamicrossmedia.com,PROXY
+DOMAIN-SUFFIX,konamigaming.com,PROXY
+DOMAIN-SUFFIX,konamigaming.net,PROXY
+DOMAIN-SUFFIX,konamigaming.online,PROXY
+DOMAIN-SUFFIX,konamionline.com,PROXY
+DOMAIN-SUFFIX,konamiopen.jp,PROXY
+DOMAIN-SUFFIX,konamisportsclub.jp,PROXY
+DOMAIN-SUFFIX,konamistyle.jp,PROXY
 DOMAIN-SUFFIX,kone.com,PROXY
 DOMAIN-SUFFIX,koolsolutions.com,PROXY
 DOMAIN-SUFFIX,koornk.com,PROXY
@@ -25102,6 +25118,8 @@ DOMAIN-SUFFIX,researchkit.org,PROXY
 DOMAIN-SUFFIX,researchkit.tv,PROXY
 DOMAIN-SUFFIX,researchscotland.ac.uk,PROXY
 DOMAIN-SUFFIX,researchwales.ac.uk,PROXY
+DOMAIN-SUFFIX,resella.jp,PROXY
+DOMAIN-SUFFIX,resellablue.com,PROXY
 DOMAIN-SUFFIX,resilient-decarbonised-energy-cdt.ac.uk,PROXY
 DOMAIN-SUFFIX,resilient-decarbonised-energy-dtc.ac.uk,PROXY
 DOMAIN-SUFFIX,resilio.com,PROXY
@@ -26663,6 +26681,7 @@ DOMAIN-SUFFIX,siddharthasintent.org,PROXY
 DOMAIN-SUFFIX,side.ac.uk,PROXY
 DOMAIN-SUFFIX,sidelinesnews.com,PROXY
 DOMAIN-SUFFIX,sidelinessportseatery.com,PROXY
+DOMAIN-SUFFIX,sider.ai,PROXY
 DOMAIN-SUFFIX,sie.ac.uk,PROXY
 DOMAIN-SUFFIX,siege-amazon.com,PROXY
 DOMAIN-SUFFIX,sierrafriendsoftibet.org,PROXY
@@ -33823,6 +33842,7 @@ DOMAIN-SUFFIX,ytn.co.kr,PROXY
 DOMAIN-SUFFIX,yuanzhengtang.org,PROXY
 DOMAIN-SUFFIX,yuenuge113.xyz,PROXY
 DOMAIN-SUFFIX,yuenuge18.cc,PROXY
+DOMAIN-SUFFIX,yugioh-card.com,PROXY
 DOMAIN-SUFFIX,yulghun.com,PROXY
 DOMAIN-SUFFIX,yunchao.net,PROXY
 DOMAIN-SUFFIX,yunlaopo.cc,PROXY
@@ -33948,6 +33968,7 @@ DOMAIN-SUFFIX,zhanbin.net,PROXY
 DOMAIN-SUFFIX,zhangboli.net,PROXY
 DOMAIN-SUFFIX,zhangboz1.xyz,PROXY
 DOMAIN-SUFFIX,zhangtianliang.com,PROXY
+DOMAIN-SUFFIX,zhangzhehan.net,PROXY
 DOMAIN-SUFFIX,zhanlve.org,PROXY
 DOMAIN-SUFFIX,zhenghui.org,PROXY
 DOMAIN-SUFFIX,zhengjian.org,PROXY
