@@ -2187,6 +2187,7 @@
 +.api.news
 +.api.waqi.info
 +.apiary.io
++.apiauto.ru
 +.apibay.org
 +.apigee.com
 +.apina.biz
@@ -2971,6 +2972,7 @@
 +.authorxml.com
 +.authpass.app
 +.authy.com
++.auto.ru
 +.autocad-schulungen.com
 +.autocad.com
 +.autocad360.com
@@ -3109,6 +3111,7 @@
 +.automaton-media.com
 +.automobile.fr
 +.automotive-cadcam.com
++.autoru.me
 +.autosketch.com
 +.autosub.ac.uk
 +.autumn-jade.com
@@ -3222,6 +3225,7 @@
 +.avstar6.com
 +.avstar8.com
 +.avstar9.com
++.avto.ru
 +.avwong.com
 +.avwto.com
 +.avxde.org
@@ -3322,6 +3326,7 @@
 +.azuredns-prd.org
 +.azureedge-test.net
 +.azureedge.net
++.azureedge.us
 +.azurefd.net
 +.azureiotcentral.com
 +.azureiotsolutions.com
@@ -4023,6 +4028,7 @@
 +.bess.ac.uk
 +.best-sex-games.com
 +.best.ac.uk
++.best2pay.net
 +.best3dhere.com
 +.best4bim.com
 +.bestamateurcumshots.com
@@ -4663,6 +4669,7 @@
 +.bluestacks.com
 +.bluestone.ac.uk
 +.bluffyporn.com
++.blurams.app
 +.blurams.com
 +.blws.ac.uk
 +.blylq.buzz
@@ -6385,6 +6392,7 @@
 +.cencoastbmw.com
 +.cenews.eu
 +.cenkei.com
++.ceno.app
 +.censorship.ai
 +.censorship.no
 +.census-registration.ac.uk
@@ -6615,6 +6623,8 @@
 +.cheshire.ac.uk
 +.cheshirecolleges.ac.uk
 +.cheshirehe.ac.uk
++.chess.com
++.chesscomfiles.com
 +.chest.ac.uk
 +.chester.ac.uk
 +.chesterfield.ac.uk
@@ -6801,6 +6811,9 @@
 +.ci-en.net
 +.cia.ac.uk
 +.cia.gov
++.cian.ru
++.cian.site
++.ciangroup.ru
 +.cias.ac.uk
 +.ciattackers.com
 +.cib.ac.uk
@@ -6827,6 +6840,7 @@
 +.cios.org
 +.ciota.ac.uk
 +.cipfg.org
++.circle19.org
 +.circlethebayfortibet.org
 +.cirencester.ac.uk
 +.cirius.ac.uk
@@ -6951,6 +6965,7 @@
 +.clashmini.com
 +.clashofclans.com
 +.clashroyale.com
++.clashyun.com
 +.clasporno.org
 +.classicalguitarblog.net
 +.classicnike.com
@@ -7102,6 +7117,7 @@
 +.clydebank.ac.uk
 +.clyp.it
 +.clzz2.xyz
++.cm.expert
 +.cmac.ac.uk
 +.cmail19.com
 +.cmcn.org
@@ -7412,6 +7428,7 @@
 +.coova.net
 +.coova.org
 +.copac.ac.uk
++.copilot-stg.com
 +.copilot.com
 +.copim.ac.uk
 +.copior.ac.uk
@@ -8837,6 +8854,7 @@
 +.dmed.technology
 +.dmgmediaprivacy.co.uk
 +.dmhy.org
++.dmir.ru
 +.dmit.io
 +.dmit.sh
 +.dml-lang.org
@@ -8921,6 +8939,7 @@
 +.docs.com
 +.docs.new
 +.docs.rs
++.docs.rw
 +.doctor-videos.com
 +.doctorvoice.org
 +.documentforce.com
@@ -9146,6 +9165,7 @@
 +.drnastran.com
 +.drns.ac.uk
 +.drobbox.pro
++.drom.ru
 +.dronedj.com
 +.dropbooks.tv
 +.dropbox-dns.com
@@ -10585,6 +10605,8 @@
 +.f-droid.com
 +.f-droid.org
 +.f-secure.com
++.f1.com
++.f1tv.com
 +.f2pool.com
 +.f5pf.com
 +.f6.dev
@@ -11587,6 +11609,7 @@
 +.formit360.com
 +.formitfactory.com
 +.forms.new
++.formula1.com
 +.forpojie.pics
 +.forshtadt.ru
 +.forster.ac.uk
@@ -12768,6 +12791,7 @@
 +.githubnext.com
 +.githubpreview.dev
 +.githubstatus.com
++.githubsupport.com
 +.githubuniverse.com
 +.githubusercontent.com
 +.gitlab-static.net
@@ -15110,6 +15134,7 @@
 +.hutpromos.com
 +.hutton.ac.uk
 +.huyandex.com
++.hva.im
 +.hw.ac.uk
 +.hwadzan.tw
 +.hwayue.org.tw
@@ -16553,6 +16578,7 @@
 +.ivacy.com
 +.iverycd.com
 +.ivi.ru
++.ivicdn.tv
 +.ivintageporn.com
 +.ivonblog.com
 +.ivpn.net
@@ -17274,6 +17300,7 @@
 +.karabako-gmo.com
 +.karafarinbank.ir
 +.karayou.com
++.kards.com
 +.karechat.ai
 +.karinahart.com
 +.karkhung.com
@@ -17468,6 +17495,7 @@
 +.kindnudist.com
 +.kinds.ac.uk
 +.kindteenporn.com
++.kinescopecdn.net
 +.king.ac.uk
 +.kingalfreds.ac.uk
 +.kingalfredsbasingstoke.ac.uk
@@ -18341,6 +18369,7 @@
 +.locate.ac.uk
 +.lockestek.com
 +.lockssalliance.ac.uk
++.log.rw
 +.logbot.net
 +.logi.com
 +.logic.ac.uk
@@ -19495,6 +19524,7 @@
 +.mhcb.ru
 +.mhcbr.ru
 +.mhdss.ac.uk
++.mhgui.com
 +.mhhanman.xyz
 +.mhie.ac.uk
 +.mhqwe.xyz
@@ -21341,6 +21371,7 @@
 +.network54.com
 +.networkedblogs.com
 +.networktunnel.net
++.netxh.blog
 +.netzerobuildings.com
 +.netzerobuildingstudio.com
 +.netzwerkdeutsch.ac.uk
@@ -22404,6 +22435,7 @@
 +.nzchinese.com
 +.nzchinese.net.nz
 +.o-courier.ru
++.o-uchi.ru
 +.o2action.co.kr
 +.o3.ru
 +.o365weve-dev.com
@@ -24396,6 +24428,7 @@
 +.potteries.ac.uk
 +.potterieseducationaltrust.ac.uk
 +.potvpn.com
++.poudobnee.com
 +.pourquoi.tw
 +.poverty.ac.uk
 +.povpornonly.com
@@ -24857,6 +24890,7 @@
 +.qmw.ac.uk
 +.qmzdd.com
 +.qnap.com
++.qnapsupport.net
 +.qobuz.com
 +.qombol.com
 +.qoo-app.com
@@ -25158,10 +25192,12 @@
 +.rbnainternational.com
 +.rbplc.com
 +.rbrandlibrary.com
++.rbsgate.com
 +.rbsgr.com
 +.rbsl.ac.uk
 +.rbslondon.ac.uk
 +.rbspeakup.com
++.rbsuat.com
 +.rbth.com
 +.rbx.com
 +.rbxcdn.com
@@ -25206,6 +25242,7 @@
 +.rdio.com
 +.rdmrsc.ac.uk
 +.rdnet.ac.uk
++.rdrom.ru
 +.rds-yes.buzz
 +.rdtcdn.com
 +.re-net.ac.uk
@@ -25293,6 +25330,7 @@
 +.realtor.com
 +.realtype.co.jp
 +.realtype.jp
++.realtyverif.ru
 +.realvision.com
 +.realviz.com
 +.realzoomovies.com
@@ -26212,6 +26250,7 @@
 +.sber.ru
 +.sberauto.com
 +.sberbank-insurance.ru
++.sberbank-tele.com
 +.sberbank.com
 +.sberbank.ru
 +.sberbankaktivno.ru
@@ -28129,6 +28168,7 @@
 +.stargazer-games.com
 +.stark-verlag.ch
 +.starlink.ac.uk
++.starlink.com
 +.starott.com
 +.starp2p.com
 +.starplus.com
@@ -28706,6 +28746,7 @@
 +.sysresccd.org
 +.system76.com
 +.systemicrisk.ac.uk
++.sysub.com
 +.sytes.net
 +.syx86.com
 +.syzbj36.xyz
@@ -29722,6 +29763,7 @@
 +.tok.media
 +.token.im
 +.tokenlon.im
++.tokenplus.app
 +.tokyo-247.com
 +.tokyo-hot.com
 +.tokyo-porn-tube.com
@@ -30030,6 +30072,8 @@
 +.truyenkk1.com
 +.truyentranh86.com
 +.truyenwk.com
++.try.rw
++.tryai.dev
 +.tryalias.com
 +.tryboobs.com
 +.trycloudflare.com
@@ -30479,6 +30523,7 @@
 +.ucg.ac.uk
 +.uchi.ru
 +.uchicago.edu
++.uchilk.ru
 +.ucisa.ac.uk
 +.ucl-status.ac.uk
 +.ucl.ac.uk
@@ -31006,6 +31051,7 @@
 +.v-resort.ac.uk
 +.v.gd
 +.v.ps
++.v.recipes
 +.v.roucdn
 +.v2.help
 +.v2.hysteria.network
@@ -33252,6 +33298,7 @@
 +.xn----8sbeoy5bze.com
 +.xn----8sbkfzespdwig.xn--p1ai
 +.xn----8sbwjbxyd.xn--p1ai
++.xn----otbzjdu.xn--p1ai
 +.xn--096-4g6em5t.com
 +.xn--11xs86f.icu
 +.xn--1jqvh729avzfcy2d8ummib.com
@@ -33271,7 +33318,9 @@
 +.xn--74q434dwff.net
 +.xn--7hv594h.com
 +.xn--80a9a4b.xn--p1ai
++.xn--80aaafbpzn5blfby1p.xn--p1ai
 +.xn--80aaazx1an0a.lol
++.xn--80aaeib8abrryx4k.xn--p1ai
 +.xn--80aafgovrgbc7am.xn--p1ai
 +.xn--80acbjgmges7ca.xn--p1ai
 +.xn--80acbjgsdq2cl.xn--p1ai
@@ -34015,6 +34064,7 @@
 +.ymhsf.top
 +.ymhsf1.top
 +.ync.ne.jp
++.yndx.net
 +.ynoproject.net
 +.yo-star.com
 +.yo1health.com
@@ -34488,6 +34538,7 @@
 +.zenit-card.ru
 +.zenit.ru
 +.zenmate.com
++.zenmux.ai
 +.zenodo.org
 +.zeplerinstitute.ac.uk
 +.zeplin.dev
