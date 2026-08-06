@@ -885,6 +885,7 @@ DOMAIN-SUFFIX,acsis.ac.uk,PROXY
 DOMAIN-SUFFIX,actalis.com,PROXY
 DOMAIN-SUFFIX,actalis.it,PROXY
 DOMAIN-SUFFIX,actfortibet.org,PROXY
+DOMAIN-SUFFIX,actifio.com,PROXY
 DOMAIN-SUFFIX,actimes.com.au,PROXY
 DOMAIN-SUFFIX,activatelearning.ac.uk,PROXY
 DOMAIN-SUFFIX,activelearnprimary.co.uk,PROXY
@@ -8168,6 +8169,8 @@ DOMAIN-SUFFIX,deepfreeze.tech,PROXY
 DOMAIN-SUFFIX,deeping.ac.uk,PROXY
 DOMAIN-SUFFIX,deepl.com,PROXY
 DOMAIN-SUFFIX,deepmind.com,PROXY
+DOMAIN-SUFFIX,deepwiki.com,PROXY
+DOMAIN-SUFFIX,deepwiki.org,PROXY
 DOMAIN-SUFFIX,deeside.ac.uk,PROXY
 DOMAIN-SUFFIX,deezer.com,PROXY
 DOMAIN-SUFFIX,defac.ac.uk,PROXY
@@ -11540,8 +11543,11 @@ DOMAIN-SUFFIX,fluidpreview.com,PROXY
 DOMAIN-SUFFIX,fluids.ac.uk,PROXY
 DOMAIN-SUFFIX,flutter.dev,PROXY
 DOMAIN-SUFFIX,flutterapp.com,PROXY
+DOMAIN-SUFFIX,fly.dev,PROXY
+DOMAIN-SUFFIX,fly.io,PROXY
 DOMAIN-SUFFIX,flyflv.com,PROXY
 DOMAIN-SUFFIX,flyingjizz.com,PROXY
+DOMAIN-SUFFIX,flyio.net,PROXY
 DOMAIN-SUFFIX,flypool.org,PROXY
 DOMAIN-SUFFIX,flyvpn.com,PROXY
 DOMAIN-SUFFIX,flyyindh-cc.sbs,PROXY
@@ -12839,6 +12845,7 @@ DOMAIN-SUFFIX,glen-coll.ac.uk,PROXY
 DOMAIN-SUFFIX,glenfife.ac.uk,PROXY
 DOMAIN-SUFFIX,glenrothes-college.ac.uk,PROXY
 DOMAIN-SUFFIX,glhl.ac.uk,PROXY
+DOMAIN-SUFFIX,glitchwave.com,PROXY
 DOMAIN-SUFFIX,gllm.ac.uk,PROXY
 DOMAIN-SUFFIX,global-sci.org,PROXY
 DOMAIN-SUFFIX,global.market.xiaomi.com,PROXY
@@ -16884,7 +16891,10 @@ DOMAIN-SUFFIX,jetbra.in,PROXY
 DOMAIN-SUFFIX,jetbrains.ai,PROXY
 DOMAIN-SUFFIX,jetbrains.cloud,PROXY
 DOMAIN-SUFFIX,jetbrains.com,PROXY
+DOMAIN-SUFFIX,jetbrains.dev,PROXY
 DOMAIN-SUFFIX,jetbrains.net,PROXY
+DOMAIN-SUFFIX,jetbrains.org,PROXY
+DOMAIN-SUFFIX,jetbrains.ru,PROXY
 DOMAIN-SUFFIX,jetbrains.space,PROXY
 DOMAIN-SUFFIX,jetbrains.team,PROXY
 DOMAIN-SUFFIX,jetfuelapp.com,PROXY
@@ -17635,6 +17645,8 @@ DOMAIN-SUFFIX,korona.com,PROXY
 DOMAIN-SUFFIX,koshelek.app,PROXY
 DOMAIN-SUFFIX,koskade.com,PROXY
 DOMAIN-SUFFIX,kostenlosepornoclips.com,PROXY
+DOMAIN-SUFFIX,kotl.in,PROXY
+DOMAIN-SUFFIX,kotlinconf.com,PROXY
 DOMAIN-SUFFIX,kotlinlang.org,PROXY
 DOMAIN-SUFFIX,koubaibu.jp,PROXY
 DOMAIN-SUFFIX,koukoku.jp,PROXY
@@ -17669,6 +17681,7 @@ DOMAIN-SUFFIX,kssacademy.ac.uk,PROXY
 DOMAIN-SUFFIX,kssdeanery.ac.uk,PROXY
 DOMAIN-SUFFIX,ksyp10.com,PROXY
 DOMAIN-SUFFIX,ktech.team,PROXY
+DOMAIN-SUFFIX,ktor.io,PROXY
 DOMAIN-SUFFIX,ktvu.com,PROXY
 DOMAIN-SUFFIX,ktzhk.com,PROXY
 DOMAIN-SUFFIX,ku77.xyz,PROXY
@@ -20849,6 +20862,7 @@ DOMAIN-SUFFIX,myicloud.net,PROXY
 DOMAIN-SUFFIX,myiphide.com,PROXY
 DOMAIN-SUFFIX,myiphider.com,PROXY
 DOMAIN-SUFFIX,myipod.net,PROXY
+DOMAIN-SUFFIX,myjetbrains.com,PROXY
 DOMAIN-SUFFIX,myjkwd.com,PROXY
 DOMAIN-SUFFIX,myjs.tw,PROXY
 DOMAIN-SUFFIX,mykomica.org,PROXY
@@ -22153,6 +22167,7 @@ DOMAIN-SUFFIX,ntdvideo.tw,PROXY
 DOMAIN-SUFFIX,ntdvn.com,PROXY
 DOMAIN-SUFFIX,ntec.ac.uk,PROXY
 DOMAIN-SUFFIX,ntfs.ac.uk,PROXY
+DOMAIN-SUFFIX,nthlink.com,PROXY
 DOMAIN-SUFFIX,ntidagenham.ac.uk,PROXY
 DOMAIN-SUFFIX,ntl.fyi,PROXY
 DOMAIN-SUFFIX,ntnews.com.au,PROXY
@@ -22840,6 +22855,7 @@ DOMAIN-SUFFIX,openweathermap.org,PROXY
 DOMAIN-SUFFIX,openweave.io,PROXY
 DOMAIN-SUFFIX,openwebster.com,PROXY
 DOMAIN-SUFFIX,openwrt.org,PROXY
+DOMAIN-SUFFIX,openxla.org,PROXY
 DOMAIN-SUFFIX,opera-archive.ac.uk,PROXY
 DOMAIN-SUFFIX,opera-mini.net,PROXY
 DOMAIN-SUFFIX,opera.com,PROXY
@@ -23049,14 +23065,17 @@ DOMAIN-SUFFIX,ozodlik.org,PROXY
 DOMAIN-SUFFIX,ozon-credit.ru,PROXY
 DOMAIN-SUFFIX,ozon-dostavka.ru,PROXY
 DOMAIN-SUFFIX,ozon-tech.ru,PROXY
+DOMAIN-SUFFIX,ozon.app,PROXY
 DOMAIN-SUFFIX,ozon.by,PROXY
 DOMAIN-SUFFIX,ozon.com,PROXY
 DOMAIN-SUFFIX,ozon.com.by,PROXY
 DOMAIN-SUFFIX,ozon.com.kz,PROXY
 DOMAIN-SUFFIX,ozon.dev,PROXY
 DOMAIN-SUFFIX,ozon.express,PROXY
+DOMAIN-SUFFIX,ozon.global,PROXY
 DOMAIN-SUFFIX,ozon.kz,PROXY
 DOMAIN-SUFFIX,ozon.li,PROXY
+DOMAIN-SUFFIX,ozon.market,PROXY
 DOMAIN-SUFFIX,ozon.ru,PROXY
 DOMAIN-SUFFIX,ozon.tech,PROXY
 DOMAIN-SUFFIX,ozon.tm,PROXY
@@ -25062,7 +25081,6 @@ DOMAIN-SUFFIX,radioaustralia.net.au,PROXY
 DOMAIN-SUFFIX,radiofarda.com,PROXY
 DOMAIN-SUFFIX,radioglobo.com.br,PROXY
 DOMAIN-SUFFIX,radiohilight.net,PROXY
-DOMAIN-SUFFIX,radiojar.com,PROXY
 DOMAIN-SUFFIX,radioline.co,PROXY
 DOMAIN-SUFFIX,radiomango.fm,PROXY
 DOMAIN-SUFFIX,radiomarsho.com,PROXY
@@ -26018,6 +26036,7 @@ DOMAIN-SUFFIX,rutracker.nl,PROXY
 DOMAIN-SUFFIX,rutracker.org,PROXY
 DOMAIN-SUFFIX,rutrecker.net,PROXY
 DOMAIN-SUFFIX,rutube.ru,PROXY
+DOMAIN-SUFFIX,rutube.sport,PROXY
 DOMAIN-SUFFIX,rutubelist.ru,PROXY
 DOMAIN-SUFFIX,ruvideos.net,PROXY
 DOMAIN-SUFFIX,ruyiseek.com,PROXY
@@ -26028,6 +26047,7 @@ DOMAIN-SUFFIX,rwbautomation.tech,PROXY
 DOMAIN-SUFFIX,rwbgeo.ru,PROXY
 DOMAIN-SUFFIX,rwcmd.ac.uk,PROXY
 DOMAIN-SUFFIX,rxhj.net,PROXY
+DOMAIN-SUFFIX,rym.fm,PROXY
 DOMAIN-SUFFIX,ryokoyomiuri.co.jp,PROXY
 DOMAIN-SUFFIX,ryukyubank.co.jp,PROXY
 DOMAIN-SUFFIX,rzr.to,PROXY
@@ -27512,6 +27532,7 @@ DOMAIN-SUFFIX,snjulebu.com,PROXY
 DOMAIN-SUFFIX,snk-corp.co.jp,PROXY
 DOMAIN-SUFFIX,snk-corp.info,PROXY
 DOMAIN-SUFFIX,snkplaymore.info,PROXY
+DOMAIN-SUFFIX,snmc.io,PROXY
 DOMAIN-SUFFIX,snow.me,PROXY
 DOMAIN-SUFFIX,snowcorp.com,PROXY
 DOMAIN-SUFFIX,snowlionpub.com,PROXY
@@ -27621,6 +27642,8 @@ DOMAIN-SUFFIX,somee.com,PROXY
 DOMAIN-SUFFIX,somerset.ac.uk,PROXY
 DOMAIN-SUFFIX,somersetcolleges.ac.uk,PROXY
 DOMAIN-SUFFIX,sonatype.org,PROXY
+DOMAIN-SUFFIX,sonematic.net,PROXY
+DOMAIN-SUFFIX,sonemic.com,PROXY
 DOMAIN-SUFFIX,songjianjun.com,PROXY
 DOMAIN-SUFFIX,sonicbbs.cc,PROXY
 DOMAIN-SUFFIX,sonidodelaesperanza.org,PROXY
@@ -28863,6 +28886,7 @@ DOMAIN-SUFFIX,talkatone.com,PROXY
 DOMAIN-SUFFIX,talkboxapp.com,PROXY
 DOMAIN-SUFFIX,talkcc.com,PROXY
 DOMAIN-SUFFIX,talkinghealthmatters.ac.uk,PROXY
+DOMAIN-SUFFIX,talkingkotlin.com,PROXY
 DOMAIN-SUFFIX,talkonly.net,PROXY
 DOMAIN-SUFFIX,talksport.com,PROXY
 DOMAIN-SUFFIX,tamescol.ac.uk,PROXY
@@ -33032,7 +33056,6 @@ DOMAIN-SUFFIX,www-facebook.com,PROXY
 DOMAIN-SUFFIX,www-paypal.info,PROXY
 DOMAIN-SUFFIX,www-paypal.us,PROXY
 DOMAIN-SUFFIX,www-sms-apple.com,PROXY
-DOMAIN-SUFFIX,www.clashverge.dev,PROXY
 DOMAIN-SUFFIX,www.destinationurl.com,PROXY
 DOMAIN-SUFFIX,www.pxcc.com,PROXY
 DOMAIN-SUFFIX,www.sb,PROXY
