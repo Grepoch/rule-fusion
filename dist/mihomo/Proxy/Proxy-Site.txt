@@ -883,6 +883,7 @@
 +.actalis.com
 +.actalis.it
 +.actfortibet.org
++.actifio.com
 +.actimes.com.au
 +.activatelearning.ac.uk
 +.activelearnprimary.co.uk
@@ -8166,6 +8167,8 @@
 +.deeping.ac.uk
 +.deepl.com
 +.deepmind.com
++.deepwiki.com
++.deepwiki.org
 +.deeside.ac.uk
 +.deezer.com
 +.defac.ac.uk
@@ -11538,8 +11541,11 @@
 +.fluids.ac.uk
 +.flutter.dev
 +.flutterapp.com
++.fly.dev
++.fly.io
 +.flyflv.com
 +.flyingjizz.com
++.flyio.net
 +.flypool.org
 +.flyvpn.com
 +.flyyindh-cc.sbs
@@ -12837,6 +12843,7 @@
 +.glenfife.ac.uk
 +.glenrothes-college.ac.uk
 +.glhl.ac.uk
++.glitchwave.com
 +.gllm.ac.uk
 +.global-sci.org
 +.global.market.xiaomi.com
@@ -16882,7 +16889,10 @@
 +.jetbrains.ai
 +.jetbrains.cloud
 +.jetbrains.com
++.jetbrains.dev
 +.jetbrains.net
++.jetbrains.org
++.jetbrains.ru
 +.jetbrains.space
 +.jetbrains.team
 +.jetfuelapp.com
@@ -17633,6 +17643,8 @@
 +.koshelek.app
 +.koskade.com
 +.kostenlosepornoclips.com
++.kotl.in
++.kotlinconf.com
 +.kotlinlang.org
 +.koubaibu.jp
 +.koukoku.jp
@@ -17667,6 +17679,7 @@
 +.kssdeanery.ac.uk
 +.ksyp10.com
 +.ktech.team
++.ktor.io
 +.ktvu.com
 +.ktzhk.com
 +.ku77.xyz
@@ -20847,6 +20860,7 @@
 +.myiphide.com
 +.myiphider.com
 +.myipod.net
++.myjetbrains.com
 +.myjkwd.com
 +.myjs.tw
 +.mykomica.org
@@ -22151,6 +22165,7 @@
 +.ntdvn.com
 +.ntec.ac.uk
 +.ntfs.ac.uk
++.nthlink.com
 +.ntidagenham.ac.uk
 +.ntl.fyi
 +.ntnews.com.au
@@ -22838,6 +22853,7 @@
 +.openweave.io
 +.openwebster.com
 +.openwrt.org
++.openxla.org
 +.opera-archive.ac.uk
 +.opera-mini.net
 +.opera.com
@@ -23047,14 +23063,17 @@
 +.ozon-credit.ru
 +.ozon-dostavka.ru
 +.ozon-tech.ru
++.ozon.app
 +.ozon.by
 +.ozon.com
 +.ozon.com.by
 +.ozon.com.kz
 +.ozon.dev
 +.ozon.express
++.ozon.global
 +.ozon.kz
 +.ozon.li
++.ozon.market
 +.ozon.ru
 +.ozon.tech
 +.ozon.tm
@@ -25060,7 +25079,6 @@
 +.radiofarda.com
 +.radioglobo.com.br
 +.radiohilight.net
-+.radiojar.com
 +.radioline.co
 +.radiomango.fm
 +.radiomarsho.com
@@ -26016,6 +26034,7 @@
 +.rutracker.org
 +.rutrecker.net
 +.rutube.ru
++.rutube.sport
 +.rutubelist.ru
 +.ruvideos.net
 +.ruyiseek.com
@@ -26026,6 +26045,7 @@
 +.rwbgeo.ru
 +.rwcmd.ac.uk
 +.rxhj.net
++.rym.fm
 +.ryokoyomiuri.co.jp
 +.ryukyubank.co.jp
 +.rzr.to
@@ -27510,6 +27530,7 @@
 +.snk-corp.co.jp
 +.snk-corp.info
 +.snkplaymore.info
++.snmc.io
 +.snow.me
 +.snowcorp.com
 +.snowlionpub.com
@@ -27619,6 +27640,8 @@
 +.somerset.ac.uk
 +.somersetcolleges.ac.uk
 +.sonatype.org
++.sonematic.net
++.sonemic.com
 +.songjianjun.com
 +.sonicbbs.cc
 +.sonidodelaesperanza.org
@@ -28861,6 +28884,7 @@
 +.talkboxapp.com
 +.talkcc.com
 +.talkinghealthmatters.ac.uk
++.talkingkotlin.com
 +.talkonly.net
 +.talksport.com
 +.tamescol.ac.uk
@@ -33030,7 +33054,6 @@
 +.www-paypal.info
 +.www-paypal.us
 +.www-sms-apple.com
-+.www.clashverge.dev
 +.www.destinationurl.com
 +.www.pxcc.com
 +.www.sb
