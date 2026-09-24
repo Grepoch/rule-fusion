@@ -6764,6 +6764,7 @@ DOMAIN-SUFFIX,chinesegay.org,PROXY
 DOMAIN-SUFFIX,chinesen.de,PROXY
 DOMAIN-SUFFIX,chinesenews.net.au,PROXY
 DOMAIN-SUFFIX,chinesepen.org,PROXY
+DOMAIN-SUFFIX,chineseposters.net,PROXY
 DOMAIN-SUFFIX,chineseradioseattle.com,PROXY
 DOMAIN-SUFFIX,chinesespanking.com,PROXY
 DOMAIN-SUFFIX,chinesetalks.net,PROXY
@@ -7220,6 +7221,7 @@ DOMAIN-SUFFIX,code.org,PROXY
 DOMAIN-SUFFIX,code1984.com,PROXY
 DOMAIN-SUFFIX,codeberg.org,PROXY
 DOMAIN-SUFFIX,codeberg.page,PROXY
+DOMAIN-SUFFIX,codebuff.com,PROXY
 DOMAIN-SUFFIX,codecademy.com,PROXY
 DOMAIN-SUFFIX,codeforaliving.io,PROXY
 DOMAIN-SUFFIX,codeforces.com,PROXY
@@ -11463,12 +11465,14 @@ DOMAIN-SUFFIX,fire-emblem-heroes.com,PROXY
 DOMAIN-SUFFIX,firearmsworld.net,PROXY
 DOMAIN-SUFFIX,firebase-settings.crashlytics.com,PROXY
 DOMAIN-SUFFIX,firebase.com,PROXY
+DOMAIN-SUFFIX,firebase.dev,PROXY
 DOMAIN-SUFFIX,firebase.io,PROXY
 DOMAIN-SUFFIX,firebaseapp.com,PROXY
 DOMAIN-SUFFIX,firebaseio.com,PROXY
 DOMAIN-SUFFIX,firech.at,PROXY
 DOMAIN-SUFFIX,fireemblemawakening.com,PROXY
 DOMAIN-SUFFIX,fireflyresearch.ac.uk,PROXY
+DOMAIN-SUFFIX,firefox-portal-detection.com,PROXY
 DOMAIN-SUFFIX,firefox.com,PROXY
 DOMAIN-SUFFIX,firefox.hu,PROXY
 DOMAIN-SUFFIX,firefoxtweetmachine.com,PROXY
@@ -11950,6 +11954,7 @@ DOMAIN-SUFFIX,freebigmovies.com,PROXY
 DOMAIN-SUFFIX,freebrowser.org,PROXY
 DOMAIN-SUFFIX,freebs.com,PROXY
 DOMAIN-SUFFIX,freebsd.org,PROXY
+DOMAIN-SUFFIX,freebuff.com,PROXY
 DOMAIN-SUFFIX,freecamsfan.com,PROXY
 DOMAIN-SUFFIX,freecamstars.com,PROXY
 DOMAIN-SUFFIX,freecartoons.biz,PROXY
@@ -22039,6 +22044,7 @@ DOMAIN-SUFFIX,nodequality.com,PROXY
 DOMAIN-SUFFIX,nodereal.io,PROXY
 DOMAIN-SUFFIX,nodes.ac.uk,PROXY
 DOMAIN-SUFFIX,nodeseek.com,PROXY
+DOMAIN-SUFFIX,nodeseek.org,PROXY
 DOMAIN-SUFFIX,nodesnoop.com,PROXY
 DOMAIN-SUFFIX,nodesource.com,PROXY
 DOMAIN-SUFFIX,nofile.io,PROXY
@@ -22105,6 +22111,7 @@ DOMAIN-SUFFIX,northumbria.ac.uk,PROXY
 DOMAIN-SUFFIX,norton.com,PROXY
 DOMAIN-SUFFIX,norwichresearchpark.ac.uk,PROXY
 DOMAIN-SUFFIX,nos.nl,PROXY
+DOMAIN-SUFFIX,note.com,PROXY
 DOMAIN-SUFFIX,notegpt.io,PROXY
 DOMAIN-SUFFIX,notepad-plus-plus.org,PROXY
 DOMAIN-SUFFIX,noticias-rt.com,PROXY
@@ -25028,6 +25035,7 @@ DOMAIN-SUFFIX,qtweeter.com,PROXY
 DOMAIN-SUFFIX,quadram.ac.uk,PROXY
 DOMAIN-SUFFIX,quadraminstitute.ac.uk,PROXY
 DOMAIN-SUFFIX,quadrat.ac.uk,PROXY
+DOMAIN-SUFFIX,quakemachinex.com,PROXY
 DOMAIN-SUFFIX,qualcomm-email.com,PROXY
 DOMAIN-SUFFIX,qualcomm-inc.com,PROXY
 DOMAIN-SUFFIX,qualcomm.co.id,PROXY
@@ -28524,6 +28532,9 @@ DOMAIN-SUFFIX,stripchat.com,PROXY
 DOMAIN-SUFFIX,stripe-terminal-local-reader.net,PROXY
 DOMAIN-SUFFIX,stripe.ac.uk,PROXY
 DOMAIN-SUFFIX,stripe.com,PROXY
+DOMAIN-SUFFIX,stripe.dev,PROXY
+DOMAIN-SUFFIX,stripe.events,PROXY
+DOMAIN-SUFFIX,stripe.global,PROXY
 DOMAIN-SUFFIX,stripe.network,PROXY
 DOMAIN-SUFFIX,stripecdn.com,PROXY
 DOMAIN-SUFFIX,stripparadise.com,PROXY
@@ -29317,6 +29328,7 @@ DOMAIN-SUFFIX,textnow.com,PROXY
 DOMAIN-SUFFIX,textnow.me,PROXY
 DOMAIN-SUFFIX,texttobuy.org,PROXY
 DOMAIN-SUFFIX,texture.com,PROXY
+DOMAIN-SUFFIX,tfbnw.net,PROXY
 DOMAIN-SUFFIX,tfc-taiwan.org.tw,PROXY
 DOMAIN-SUFFIX,tferwq.com,PROXY
 DOMAIN-SUFFIX,tfhub.dev,PROXY
