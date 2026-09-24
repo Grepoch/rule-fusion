@@ -6762,6 +6762,7 @@
 +.chinesen.de
 +.chinesenews.net.au
 +.chinesepen.org
++.chineseposters.net
 +.chineseradioseattle.com
 +.chinesespanking.com
 +.chinesetalks.net
@@ -7218,6 +7219,7 @@
 +.code1984.com
 +.codeberg.org
 +.codeberg.page
++.codebuff.com
 +.codecademy.com
 +.codeforaliving.io
 +.codeforces.com
@@ -11461,12 +11463,14 @@
 +.firearmsworld.net
 +.firebase-settings.crashlytics.com
 +.firebase.com
++.firebase.dev
 +.firebase.io
 +.firebaseapp.com
 +.firebaseio.com
 +.firech.at
 +.fireemblemawakening.com
 +.fireflyresearch.ac.uk
++.firefox-portal-detection.com
 +.firefox.com
 +.firefox.hu
 +.firefoxtweetmachine.com
@@ -11948,6 +11952,7 @@
 +.freebrowser.org
 +.freebs.com
 +.freebsd.org
++.freebuff.com
 +.freecamsfan.com
 +.freecamstars.com
 +.freecartoons.biz
@@ -22037,6 +22042,7 @@
 +.nodereal.io
 +.nodes.ac.uk
 +.nodeseek.com
++.nodeseek.org
 +.nodesnoop.com
 +.nodesource.com
 +.nofile.io
@@ -22103,6 +22109,7 @@
 +.norton.com
 +.norwichresearchpark.ac.uk
 +.nos.nl
++.note.com
 +.notegpt.io
 +.notepad-plus-plus.org
 +.noticias-rt.com
@@ -25026,6 +25033,7 @@
 +.quadram.ac.uk
 +.quadraminstitute.ac.uk
 +.quadrat.ac.uk
++.quakemachinex.com
 +.qualcomm-email.com
 +.qualcomm-inc.com
 +.qualcomm.co.id
@@ -28522,6 +28530,9 @@
 +.stripe-terminal-local-reader.net
 +.stripe.ac.uk
 +.stripe.com
++.stripe.dev
++.stripe.events
++.stripe.global
 +.stripe.network
 +.stripecdn.com
 +.stripparadise.com
@@ -29315,6 +29326,7 @@
 +.textnow.me
 +.texttobuy.org
 +.texture.com
++.tfbnw.net
 +.tfc-taiwan.org.tw
 +.tferwq.com
 +.tfhub.dev
