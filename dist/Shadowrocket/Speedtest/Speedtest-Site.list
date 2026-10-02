@@ -4,3 +4,6 @@ DOMAIN-SUFFIX,fast.com,PROXY
 DOMAIN-SUFFIX,ooklaserver.net,PROXY
 DOMAIN-SUFFIX,speed.cloudflare.com,PROXY
 DOMAIN-SUFFIX,speed.dler.io,PROXY
+DOMAIN-SUFFIX,speedtest.co,PROXY
+DOMAIN-SUFFIX,speedtest.net,PROXY
+DOMAIN-SUFFIX,speedtestcustom.com,PROXY
