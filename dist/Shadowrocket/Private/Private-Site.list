@@ -105,6 +105,8 @@ DOMAIN-SUFFIX,leike.cc,PROXY
 DOMAIN-SUFFIX,local.adguard.org,PROXY
 DOMAIN-SUFFIX,localhost.ptlogin2.qq.com,PROXY
 DOMAIN-SUFFIX,localhost.sec.qq.com,PROXY
+DOMAIN-SUFFIX,localhost.weixin.qq.com,PROXY
+DOMAIN-SUFFIX,localhost.work.weixin.qq.com,PROXY
 DOMAIN-SUFFIX,my.router,PROXY
 DOMAIN-SUFFIX,oasisauth.h3c.com,PROXY
 DOMAIN-SUFFIX,p.to,PROXY
